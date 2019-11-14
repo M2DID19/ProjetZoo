@@ -75,6 +75,19 @@
     </developers-->
     <!-- ADAPTER les métadonnées -->
 
+    <profiles>
+        <profile>
+            <id>stage-devel-bintray</id>
+            <distributionManagement>
+                <repository>
+                    <id>bintray-marcnocito-projet</id>
+                    <name>marcnocito-projet</name>
+                    <url>https://api.bintray.com/maven/marcnocito/projet/Zoo/;publish=1</url>
+                </repository>
+            </distributionManagement>
+        </profile>
+    </profiles>
+
     <build>
         <plugins>
             <plugin>
