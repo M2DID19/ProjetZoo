@@ -1,10 +1,10 @@
-package vivants;
+package fr.univtln.M2DID19.ProjetZoo.vivants;
 
-public class Aigle extends Oiseau{
+public class Lapin extends Mammifere{
 
     @Override
     public String toString() {
-            return super.toString()+"je suis un aigle";
+        return super.toString()+"je suis un lapin";
 
     }
 

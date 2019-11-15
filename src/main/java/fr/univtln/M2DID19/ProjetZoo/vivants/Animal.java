@@ -1,4 +1,4 @@
-package vivants;
+package fr.univtln.M2DID19.ProjetZoo.vivants;
 
 public class Animal {
 
