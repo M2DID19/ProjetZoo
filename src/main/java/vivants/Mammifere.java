@@ -11,6 +11,6 @@ public class Mammifere extends Animal{
 
     @Override
     public String toString() {
-        return "je suis un mammifere, "+super.toString();
+        return super.toString()+"je suis un mammifere, ";
     }
 }

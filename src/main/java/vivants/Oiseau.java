@@ -11,6 +11,6 @@ public class Oiseau extends Animal {
 
     @Override
     public String toString() {
-        return "je suis un oiseau, "+super.toString();
+        return super.toString()+"je suis un oiseau, ";
     }
 }
