@@ -1,6 +1,16 @@
 package fr.univtln.M2DID19.ProjetZoo.vivants;
 
+import javax.validation.Valid;
+import javax.validation.constraints.Max;
+import javax.validation.constraints.Min;
+
+@Valid
 public class Lapin extends Mammifere{
+
+
+    @Min(4)
+    @Max(4)
+    private int nbPattes;
 
     @Override
     public String toString() {
