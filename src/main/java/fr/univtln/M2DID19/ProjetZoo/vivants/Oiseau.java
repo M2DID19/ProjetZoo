@@ -5,7 +5,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 @Valid
-public class Oiseau extends Animal {
+public class Oiseau extends Animal implements Carnivore{
 
     @Min(2)
     @Max(2)
@@ -26,5 +26,10 @@ public class Oiseau extends Animal {
     @Override
     public String toString() {
         return super.toString()+"je suis un oiseau, ";
+    }
+
+    @Override
+    public void manger(@Valid Animal animal) {
+
     }
 }

@@ -5,7 +5,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 @Valid
-public class Lapin extends Mammifere{
+public class Lapin extends Mammifere implements Herbivore{
 
 
     @Min(4)
@@ -21,5 +21,10 @@ public class Lapin extends Mammifere{
     @Override
     public int hashCode() {
         return super.hashCode();
+    }
+
+    @Override
+    public void brouter(Plante plante) {
+
     }
 }

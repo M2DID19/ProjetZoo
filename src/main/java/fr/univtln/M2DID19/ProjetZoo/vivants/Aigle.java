@@ -5,7 +5,7 @@ import javax.validation.constraints.Max;
 import javax.validation.constraints.Min;
 
 @Valid
-public class Aigle extends Oiseau{
+public class Aigle extends Oiseau {
 
 
     @Override

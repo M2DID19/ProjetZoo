@@ -1,5 +1,7 @@
 package fr.univtln.M2DID19.ProjetZoo;
 
+import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
+import fr.univtln.M2DID19.ProjetZoo.vivants.Plante;
 import org.apache.log4j.PatternLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -29,12 +31,9 @@ public class App {
         System.out.println("Hello world !");
         Vache vache = new Vache("marguerite");
         vache.setNbPattes(4);
-        Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
-        Set<ConstraintViolation<Vache>> constraintViolations = validator.validate(vache);
-        for (ConstraintViolation<Vache> cv:constraintViolations){
-            System.out.println(" . " + cv.getPropertyPath() +
-                    "( in " + cv.getRootBeanClass().getSimpleName() +
-            " )" + cv.getMessage());
-        }
+        Plante plante = new Plante();
+        vache.brouter(plante);
+        Aigle aigle=new Aigle();
+        aigle.manger(vache);
     }
 }

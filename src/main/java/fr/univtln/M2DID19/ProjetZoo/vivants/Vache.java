@@ -6,7 +6,7 @@ import javax.validation.constraints.Min;
 import javax.validation.constraints.NotNull;
 
 @Valid
-public class Vache extends Mammifere{
+public class Vache extends Mammifere implements Herbivore{
 
     @Min(4)
     @Max(4)
@@ -27,5 +27,10 @@ public class Vache extends Mammifere{
     @Override
     public String toString() {
         return "Je suis "+this.getNom()+", je suis une vache, ";
+    }
+
+    @Override
+    public void brouter(Plante plante) {
+
     }
 }
