@@ -1,16 +1,24 @@
 package fr.univtln.M2DID19.ProjetZoo.vivants;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.validation.constraints.Positive;
 
-@Valid
+
+@Entity
+@Builder
+@Getter
+@Setter
+
 public class Lapin extends Mammifere implements Herbivore{
 
 
-    @Min(4)
-    @Max(4)
-    private int nbPattes;
+    @Column(name="longueurOreille")
+    @Positive
+    private int longueurOreille;
 
     @Override
     public String toString() {
@@ -20,7 +28,13 @@ public class Lapin extends Mammifere implements Herbivore{
 
     @Override
     public int hashCode() {
-        return super.hashCode();
+
+        return this.getNom().hashCode();
+    }
+    public boolean equals(Lapin lapin) {
+        if (this.getNom()==lapin.getNom())
+            return true;
+        return false;
     }
 
     @Override
@@ -28,3 +42,4 @@ public class Lapin extends Mammifere implements Herbivore{
 
     }
 }
+

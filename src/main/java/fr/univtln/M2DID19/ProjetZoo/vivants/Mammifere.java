@@ -1,21 +1,23 @@
 package fr.univtln.M2DID19.ProjetZoo.vivants;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Size;
+import lombok.Getter;
+import lombok.Setter;
 
-@Valid
-public class Mammifere extends Animal{
+import javax.persistence.Column;
+import javax.persistence.Entity;
 
-    @Size(min=0, max=50)
-    public Mammifere(String nom) {
-        super(nom);
-    }
-
-    public Mammifere() {
-    }
+@Entity
+@Getter
+@Setter
+public abstract class Mammifere extends Animal{
+    @Column(name="marin")
+    boolean marin;
 
     @Override
     public String toString() {
         return super.toString()+"je suis un mammifere, ";
     }
+
+
+
 }

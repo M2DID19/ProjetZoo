@@ -1,32 +1,33 @@
 package fr.univtln.M2DID19.ProjetZoo.vivants;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
+import lombok.Getter;
+import lombok.Setter;
 
-@Valid
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.validation.Valid;
+import javax.validation.constraints.NotNull;
+
+@Entity
+@Getter
+@Setter
+
 public class Oiseau extends Animal implements Carnivore{
 
-    @Min(2)
-    @Max(2)
-    private int nbPattes;
-
-    @Min(2)
-    @Max(2)
-    private int nbAiless;
 
 
-    public Oiseau(String nom) {
-        super(nom);
-    }
 
-    public Oiseau() {
-    }
+    @Column(name="couleur")
+    @NotNull
+    private String couleur;
+
 
     @Override
     public String toString() {
-        return super.toString()+"je suis un oiseau, ";
+        return super.toString()+", je suis un oiseau, ";
     }
+
+
 
     @Override
     public void manger(@Valid Animal animal) {

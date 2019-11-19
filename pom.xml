@@ -75,6 +75,7 @@
     </developers-->
     <!-- ADAPTER les métadonnées -->
 
+
     <profiles>
         <profile>
             <id>stage-devel-bintray</id>
@@ -124,9 +125,14 @@
     <dependencies>
 
         <dependency>
+           <groupId>org.hibernate.javax.persistence</groupId>
+            <artifactId>hibernate-jpa-2.0-api</artifactId>
+            <version>1.0.1.Final</version>
+        </dependency>
+        <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.10</version>
+            <version>1.16.20</version>
             <scope>provided</scope>
         </dependency>
 

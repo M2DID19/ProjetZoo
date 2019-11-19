@@ -1,32 +1,38 @@
 package fr.univtln.M2DID19.ProjetZoo.vivants;
 
-import javax.validation.Valid;
-import javax.validation.constraints.Max;
-import javax.validation.constraints.Min;
-import javax.validation.constraints.NotNull;
+import lombok.Builder;
+import lombok.Getter;
+import lombok.Setter;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.validation.constraints.Positive;
 
-@Valid
+
+
+@Entity
+@Builder
+@Getter
+@Setter
 public class Vache extends Mammifere implements Herbivore{
 
-    @Min(4)
-    @Max(4)
-    private int nbPattes;
+    @Column(name="nbTache")
+    @Positive
+    int nbTache;
 
-    @NotNull
-    public Vache(String nom) {
-        super(nom);
-    }
-
-    public Vache() {
-    }
-
-    public void setNbPattes(int nbPattes) {
-        this.nbPattes = nbPattes;
+    public String toString() {
+        return super.toString()+"je suis une vache, ";
     }
 
     @Override
-    public String toString() {
-        return "Je suis "+this.getNom()+", je suis une vache, ";
+    public int hashCode() {
+
+        return this.getNom().hashCode();
+    }
+
+    public boolean equals(Vache vache) {
+        if (this.getNom()==vache.getNom())
+            return true;
+        return false;
     }
 
     @Override
@@ -34,3 +40,6 @@ public class Vache extends Mammifere implements Herbivore{
 
     }
 }
+
+
+
