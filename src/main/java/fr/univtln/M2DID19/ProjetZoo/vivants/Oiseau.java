@@ -12,7 +12,7 @@ import javax.validation.constraints.NotNull;
 @Getter
 @Setter
 
-public class Oiseau extends Animal implements Carnivore{
+public abstract class Oiseau extends Animal implements Carnivore{
 
 
 

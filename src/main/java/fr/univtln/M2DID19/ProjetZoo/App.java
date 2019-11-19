@@ -23,7 +23,6 @@ public class App {
         logger.debug("About to talk :");
         System.out.println("Hello world !");
 
-
     }
 
 }
