@@ -12,7 +12,6 @@ import javax.validation.constraints.Positive;
 @Builder
 @Getter
 @Setter
-
 public class Lapin extends Mammifere implements Herbivore{
 
 
@@ -26,16 +25,16 @@ public class Lapin extends Mammifere implements Herbivore{
 
     }
 
-    @Override
-    public int hashCode() {
-
-        return this.getNom().hashCode();
-    }
-    public boolean equals(Lapin lapin) {
-        if (this.getNom()==lapin.getNom())
-            return true;
-        return false;
-    }
+//    @Override
+//    public int hashCode() {
+//
+//        return this.getNom().hashCode();
+//    }
+//    public boolean equals(Lapin lapin) {
+//        if (this.getNom()==lapin.getNom())
+//            return true;
+//        return false;
+//    }
 
     @Override
     public void brouter(Plante plante) {

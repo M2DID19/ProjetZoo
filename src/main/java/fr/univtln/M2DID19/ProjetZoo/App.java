@@ -1,5 +1,9 @@
 package fr.univtln.M2DID19.ProjetZoo;
 
+import fr.univtln.M2DID19.ProjetZoo.structures.Zoo;
+import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
+import fr.univtln.M2DID19.ProjetZoo.vivants.Lapin;
+import fr.univtln.M2DID19.ProjetZoo.vivants.Vache;
 import org.apache.log4j.PatternLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -23,6 +27,29 @@ public class App {
         logger.debug("About to talk :");
         System.out.println("Hello world !");
 
+        Vache.VacheBuilder builderVache = Vache.builder();
+        Vache vache =builderVache.build();
+        vache.setNom("vache qui rit");
+
+        Lapin lapino= Lapin.builder().build();
+        lapino.setNom("helo");
+
+        Aigle aigle= Aigle.builder().build();
+        aigle.setId(2);
+        aigle.setNom("zoro");
+        Zoo z=new Zoo();
+        Zoo z2=new Zoo();
+        z2.setNom("Mon zoo 2 ...");
+        z.setNom("Mon zoo 1 ...");
+        z.ajouterAnimal(vache);
+        z.ajouterAnimal(lapino);
+        //z.ajouterAnimal(lapino);
+        //z.ajouterAnimal(vache);
+        z2.ajouterAnimal(aigle);
+        z.afficheToi();
+        z2.afficheToi();
+        lapino.setZoo(z);
+        System.out.println(lapino.getZoo());
     }
 
 }

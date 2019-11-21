@@ -24,15 +24,15 @@ public class Aigle extends Oiseau{
 
     }
 
-    @Override
-    public int hashCode() {
-
-        return this.getNom().hashCode();
-    }
-
-    public boolean equals(Aigle aigle) {
-        if (this.getNom()==aigle.getNom())
-            return true;
-        return false;
-    }
+//    @Override
+//    public int hashCode() {
+//
+//        return this.getNom().hashCode();
+//    }
+//
+//    public boolean equals(Aigle aigle) {
+//        if (this.getNom()==aigle.getNom())
+//            return true;
+//        return false;
+//    }
 }

@@ -23,17 +23,17 @@ public class Vache extends Mammifere implements Herbivore{
         return super.toString()+"je suis une vache, ";
     }
 
-    @Override
-    public int hashCode() {
-
-        return this.getNom().hashCode();
-    }
-
-    public boolean equals(Vache vache) {
-        if (this.getNom()==vache.getNom())
-            return true;
-        return false;
-    }
+//    @Override
+//    public int hashCode() {
+//
+//        return this.getNom().hashCode();
+//    }
+//
+//    public boolean equals(Vache vache) {
+//        if (this.getNom()==vache.getNom())
+//            return true;
+//        return false;
+//    }
 
     @Override
     public void brouter(Plante plante) {
