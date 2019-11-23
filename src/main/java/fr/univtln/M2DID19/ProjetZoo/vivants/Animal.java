@@ -1,5 +1,6 @@
 package fr.univtln.M2DID19.ProjetZoo.vivants;
 
+
 import fr.univtln.M2DID19.ProjetZoo.structures.Zoo;
 import lombok.Getter;
 import lombok.Setter;
@@ -8,10 +9,12 @@ import javax.persistence.Column;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.MappedSuperclass;
 import javax.validation.constraints.Size;
 
 @Getter
 @Setter
+@MappedSuperclass
 public abstract class Animal implements Comparable<Animal>{
 
     @Id
