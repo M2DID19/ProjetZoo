@@ -10,7 +10,7 @@ import javax.validation.constraints.Positive;
 
 
 @Entity
-//@Builder
+@Builder
 @Getter
 @Setter
 public class Vache extends Mammifere implements Herbivore{
@@ -40,3 +40,6 @@ public class Vache extends Mammifere implements Herbivore{
 
     }
 }
+
+
+
