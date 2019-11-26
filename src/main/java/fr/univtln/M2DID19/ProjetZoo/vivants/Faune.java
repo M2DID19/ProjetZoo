@@ -10,7 +10,7 @@ import java.util.Iterator;
 import java.util.List;
 
 @Getter
-@Builder
+//@Builder
 public class Faune {
 
     @Id
@@ -22,7 +22,7 @@ public class Faune {
     public int ajouterAnimal(Animal animal){
         if(!faune.contains(animal))
         {faune.add(animal);
-         return 1;
+            return 1;
         }
         return 0;
     }

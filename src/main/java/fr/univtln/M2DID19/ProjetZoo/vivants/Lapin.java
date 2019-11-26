@@ -1,5 +1,6 @@
 package fr.univtln.M2DID19.ProjetZoo.vivants;
 
+
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
@@ -9,7 +10,7 @@ import javax.validation.constraints.Positive;
 
 
 @Entity
-@Builder
+//@Builder
 @Getter
 @Setter
 public class Lapin extends Mammifere implements Herbivore{
@@ -41,4 +42,3 @@ public class Lapin extends Mammifere implements Herbivore{
 
     }
 }
-

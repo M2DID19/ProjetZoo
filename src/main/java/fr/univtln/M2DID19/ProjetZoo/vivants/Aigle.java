@@ -9,7 +9,7 @@ import javax.persistence.Entity;
 import javax.validation.constraints.Min;
 
 @Entity
-@Builder
+//@Builder
 @Getter
 @Setter
 public class Aigle extends Oiseau{
