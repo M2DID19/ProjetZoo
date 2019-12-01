@@ -4,7 +4,9 @@ target/
 .settings/
 Thumbs.db
 settings.xml
-.ddl
+
+sampleCreate.ddl
+sampleDrop.ddl
 
 # built application files
 *.apk
