@@ -4,7 +4,7 @@ target/
 .settings/
 Thumbs.db
 settings.xml
-*.ddl
+.ddl
 
 # built application files
 *.apk

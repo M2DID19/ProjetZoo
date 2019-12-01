@@ -4,18 +4,19 @@ package fr.univtln.M2DID19.ProjetZoo.vivants;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.CascadeType;
-import javax.persistence.Column;
-import javax.persistence.Entity;
+import javax.persistence.*;
 
-import javax.persistence.ManyToOne;
 import javax.validation.constraints.Min;
+import java.io.Serializable;
+
 
 @Entity
+@Table(name="Aigle")
 //@Builder
 @Getter
 @Setter
-public class Aigle extends Oiseau{
+@NamedQuery(name = "findAllAigle", query = "SELECT a from Aigle a")
+public class Aigle extends Oiseau implements Serializable {
 
     @Column(name="vitesse")
     @Min(0)
