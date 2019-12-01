@@ -24,8 +24,11 @@ public abstract class Animal implements Comparable<Animal>{
     @Size(min = 1,max = 50)
     private String nom;
 
-    @Getter
+    @Getter @Setter
     private Zoo zoo;
+
+    @Getter @Setter
+    private Faune faune;
 
     @Override
     public String toString() {

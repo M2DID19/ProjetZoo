@@ -4,6 +4,8 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
@@ -13,12 +15,18 @@ import javax.validation.constraints.NotNull;
 @MappedSuperclass
 public abstract class Oiseau extends Animal implements Carnivore{
 
+    @Getter
+    public enum couleur{
+        ROUGE,
+        JAUNE,
+        NOIR,
+        GRIS,
 
-
-
+    }
+    @Enumerated(EnumType.STRING)
     @Column(name="couleur")
     @NotNull
-    private String couleur;
+    private couleur couleur;
 
 
     @Override

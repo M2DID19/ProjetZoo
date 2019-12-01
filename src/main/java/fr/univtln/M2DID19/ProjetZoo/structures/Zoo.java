@@ -5,17 +5,22 @@ import fr.univtln.M2DID19.ProjetZoo.vivants.Animal;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.persistence.*;
 import java.util.*;
 
+@Entity
 public class Zoo {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.TABLE)
+    private int id;
     @Getter @Setter
 
     private String nom;
 
     @Setter @Getter
-    private  List<Animal> zooL=new ArrayList();
-
+    @Transient
+    private List<Animal> zooL=new ArrayList();
 
     public int ajouterAnimal(Animal animal){
         if(this.zooL.contains(animal))

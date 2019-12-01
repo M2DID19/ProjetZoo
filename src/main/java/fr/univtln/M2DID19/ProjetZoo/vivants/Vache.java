@@ -3,8 +3,11 @@ package fr.univtln.M2DID19.ProjetZoo.vivants;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.ManyToOne;
 import javax.validation.constraints.Positive;
 
 
@@ -22,6 +25,9 @@ public class Vache extends Mammifere implements Herbivore{
     public String toString() {
         return super.toString()+"je suis une vache, ";
     }
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Faune faune;
+
 
 //    @Override
 //    public int hashCode() {
