@@ -1,11 +1,14 @@
 package fr.univtln.M2DID19.ProjetZoo.DAO;
 
 import javax.persistence.*;
+import java.util.List;
 
 public class DAO<T> implements CrudService{
 
     @PersistenceContext
-    EntityManager em;
+    EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
+    EntityManager em = emf.createEntityManager();
+    @PersistenceContext
     EntityTransaction transac = em.getTransaction();
 
     @Override
@@ -32,5 +35,11 @@ public class DAO<T> implements CrudService{
         transac.begin();
         em.remove(ref);
         transac.commit();
+    }
+
+    @Override
+    public List findWithNamedQuery(String queryName) {
+        System.out.println("hhhh");
+        return this.em.createNamedQuery(queryName).getResultList();
     }
 }
