@@ -1,6 +1,7 @@
 package fr.univtln.M2DID19.ProjetZoo;
 
 import fr.univtln.M2DID19.ProjetZoo.REST.Tmp;
+import fr.univtln.M2DID19.ProjetZoo.ejb.GestionAigle;
 import fr.univtln.M2DID19.ProjetZoo.structures.Zoo;
 import fr.univtln.M2DID19.ProjetZoo.vivants.*;
 import org.apache.log4j.PatternLayout;
@@ -101,6 +102,8 @@ public class App {
         emf.close();
         faune.afficherFaune();
 
+        GestionAigle gestionAigle = new GestionAigle();
+        gestionAigle.communiquer();
 
 
 //        System.out.println("FIN !!");

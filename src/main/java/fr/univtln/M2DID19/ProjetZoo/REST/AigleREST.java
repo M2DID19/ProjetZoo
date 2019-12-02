@@ -1,8 +1,10 @@
 package fr.univtln.M2DID19.ProjetZoo.REST;
 
 import fr.univtln.M2DID19.ProjetZoo.DAO.DAO;
+import fr.univtln.M2DID19.ProjetZoo.ejb.GestionAigle;
 import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
 
+import javax.inject.Inject;
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
@@ -13,8 +15,9 @@ import java.util.List;
 //@Produces({"application/json})"})
 public class AigleREST {
 
-    private DAO dao = new DAO();
-
+//    @Inject DAO dao;
+//    @Inject GestionAigle gestionAigle;
+    GestionAigle gestionAigle = new GestionAigle();
 //    @GET
 //    @Path("/aigles")
 //    @Produces(MediaType.APPLICATION_JSON)
@@ -27,6 +30,8 @@ public class AigleREST {
 //    @Produces(MediaType.APPLICATION_JSON)
     @Produces(MediaType.TEXT_PLAIN)
     public String getAllAigle() {
+//        gestionAigle.findAllAigle();
+        gestionAigle.communiquer();
         return "got it";
     }
 
