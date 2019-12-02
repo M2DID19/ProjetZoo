@@ -15,11 +15,19 @@ public class AigleREST {
 
     private DAO dao = new DAO();
 
+//    @GET
+//    @Path("/aigles")
+//    @Produces(MediaType.APPLICATION_JSON)
+//    public List<Aigle> getAllAigle() {
+//        return dao.findWithNamedQuery("findAllAigle");
+//    }
+
     @GET
     @Path("/aigles")
-    @Produces(MediaType.APPLICATION_JSON)
-    public List<Aigle> getAllAigle() {
-        return dao.findWithNamedQuery("findAllAigle");
+//    @Produces(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.TEXT_PLAIN)
+    public String getAllAigle() {
+        return "got it";
     }
 
 }

@@ -33,6 +33,8 @@ public class App {
         EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
         EntityManager em = emf.createEntityManager();
 
+        System.out.print("ttt");
+
         Tmp tmp = new Tmp();
 
 //        Vache.VacheBuilder builderVache = Vache.builder();
@@ -101,10 +103,15 @@ public class App {
 
 
 
-        System.out.println("FIN !!");
-        List<Aigle> liste = tmp.getAllAigle2();
-        System.out.println("FIN2 !!");
-        System.out.println(liste.get(0));
+//        System.out.println("FIN !!");
+//        List<Aigle> liste = tmp.getAllAigle2();
+//        System.out.println("FIN2 !!");
+//        System.out.println(liste.get(0));
+
+//        System.out.println("FIN !!");
+//        String liste = tmp.getAllAigle2();
+//        System.out.println("FIN2 !!");
+//        System.out.println(liste);
     }
 
 }
