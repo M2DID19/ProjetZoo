@@ -10,7 +10,8 @@ public class DAO<T> implements CrudService{
     EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
     EntityManager em = emf.createEntityManager();
 //    @PersistenceContext private EntityManager em;
-//    @PersistenceContext
+//    @PersistenceContext (unitName = "authors")
+//    private EntityManager em;
 //    EntityTransaction transac = em.getTransaction();
 
     @Override

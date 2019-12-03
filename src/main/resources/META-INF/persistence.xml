@@ -16,11 +16,11 @@
         <class>fr.univtln.M2DID19.ProjetZoo.structures.Zoo</class>
         <properties>
             <!-- Les paramètres de connexions -->
-            <property name="javax.persistence.target-database" value="PostgreSQL"/>
-            <property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>
-            <property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.99.100:5432/glassfish"/>
-            <property name="javax.persistence.jdbc.user" value="glassfish"/>
-            <property name="javax.persistence.jdbc.password" value="glassfishdbpassword"/>
+            <!--<property name="javax.persistence.target-database" value="PostgreSQL"/>-->
+            <!--<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>-->
+            <!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.99.100:5432/glassfish"/>-->
+            <!--<property name="javax.persistence.jdbc.user" value="glassfish"/>-->
+            <!--<property name="javax.persistence.jdbc.password" value="glassfishdbpassword"/>-->
 
             <!-- Les options de générations des tables -->
             <property name="javax.persistence.schema-generation.database.action" value="create"/>

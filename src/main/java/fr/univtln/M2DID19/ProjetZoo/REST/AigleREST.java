@@ -37,7 +37,7 @@ public class AigleREST {
     @Produces(MediaType.APPLICATION_JSON)
     public Aigle getAigle() {
         aigle = gestionAigle.findAigle();
-        System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD \n\n\n" + aigle + "\n\n\n\n");
+//        System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD \n\n\n" + aigle + "\n\n\n\n");
         return aigle;
     }
 
