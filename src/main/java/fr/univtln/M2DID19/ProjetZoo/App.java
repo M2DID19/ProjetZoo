@@ -1,5 +1,7 @@
 package fr.univtln.M2DID19.ProjetZoo;
 
+import fr.univtln.M2DID19.ProjetZoo.REST.Tmp;
+import fr.univtln.M2DID19.ProjetZoo.ejb.GestionAigle;
 import fr.univtln.M2DID19.ProjetZoo.structures.Zoo;
 import fr.univtln.M2DID19.ProjetZoo.vivants.*;
 import org.apache.log4j.PatternLayout;
@@ -10,6 +12,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import java.lang.invoke.MethodHandles;
+import java.util.List;
 
 /**
  * Hello world!
@@ -27,6 +30,13 @@ public class App {
         logger.info("App started.");
         logger.debug("About to talk :");
         System.out.println("Hello world !");
+
+        EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
+        EntityManager em = emf.createEntityManager();
+
+        System.out.print("ttt");
+
+        Tmp tmp = new Tmp();
 
 //        Vache.VacheBuilder builderVache = Vache.builder();
 //        Vache vache =builderVache.build();
@@ -78,8 +88,7 @@ public class App {
         zoo1.ajouterAnimal(aigle);
         zoo2.ajouterAnimal(vache1);
         zoo2.ajouterAnimal(lapino);
-        EntityManagerFactory emf= Persistence.createEntityManagerFactory("authors");
-        EntityManager em=emf.createEntityManager();
+
         em.getTransaction().begin();
         em.persist(lapino);
         em.persist(vache);
@@ -92,7 +101,20 @@ public class App {
         em.getTransaction().commit();
         emf.close();
         faune.afficherFaune();
-       // em.close();
+
+        GestionAigle gestionAigle = new GestionAigle();
+        gestionAigle.communiquer();
+
+
+//        System.out.println("FIN !!");
+//        List<Aigle> liste = tmp.getAllAigle2();
+//        System.out.println("FIN2 !!");
+//        System.out.println(liste.get(0));
+
+//        System.out.println("FIN !!");
+//        String liste = tmp.getAllAigle2();
+//        System.out.println("FIN2 !!");
+//        System.out.println(liste);
     }
 
 }

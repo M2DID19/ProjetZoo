@@ -9,8 +9,8 @@
     </servlet>
     <servlet-mapping>
         <servlet-name>javax.ws.rs.core.Application</servlet-name>
-        <url-pattern>/*</url-pattern>
+        <url-pattern>/webresource/*</url-pattern>
     </servlet-mapping>
 
-    <module-name>application</module-name>
+    <!--<module-name>application</module-name>-->
 </web-app>
