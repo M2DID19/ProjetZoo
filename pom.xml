@@ -43,7 +43,7 @@
     <!-- ADAPTER les coordonnées -->
     <groupId>fr.univtln.M2DID19.ProjetZoo</groupId>
     <artifactId>ProjetZoo</artifactId>
-    <version>1.0-SNAPSHOT</version>
+    <version>1.0-start_jsf-SNAPSHOT</version>
     <packaging>war</packaging>
     <!-- ADAPTER les coordonnées -->
 
