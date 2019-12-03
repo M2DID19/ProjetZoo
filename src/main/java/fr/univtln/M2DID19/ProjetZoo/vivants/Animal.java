@@ -5,6 +5,7 @@ import fr.univtln.M2DID19.ProjetZoo.structures.Zoo;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Column;
 
 import javax.persistence.GeneratedValue;
@@ -25,10 +26,13 @@ public abstract class Animal implements Comparable<Animal>{
     private String nom;
 
 //    @Getter @Setter
+    @JsonbTransient
     private Zoo zoo;
 
 //    @Getter @Setter
+    @JsonbTransient
     private Faune faune;
+
 
     @Override
     public String toString() {
