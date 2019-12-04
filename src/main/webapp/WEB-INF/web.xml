@@ -14,10 +14,10 @@
 
 
 
-    <display-name>JSF</display-name>
+    <!--<display-name>JSF</display-name>-->
     <context-param>
-        <param-name>javax.faces.STATE_SAVING_METHOD</param-name>
-        <param-value>client</param-value>
+        <param-name>javax.faces.PROJECT_STAGE</param-name>
+        <param-value>Development</param-value>
     </context-param>
 
     <!-- Servlet servant de controleur-->
@@ -36,6 +36,6 @@
 
 
     <welcome-file-list>
-        <welcome-file>index.htm</welcome-file>
+        <welcome-file>/pages/index.html</welcome-file>
     </welcome-file-list>
 </web-app>
