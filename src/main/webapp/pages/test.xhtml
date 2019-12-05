@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:p="http://xmlns.jcp.org/jsf/html">
+<!--                xmlns:p="http://primefaces.org/ui"-->
+<!--                xmlns:f="http://java.sun.com/jsf/core"-->
+<!--    <f:view>-->
+<!--        <head>-->
+<!--            <title>Page d'accueil de l'application</title>-->
+<!--        </head>-->
+<!--        <body>-->
+<!--        <h:form>-->
+<!--            <h3>Bienvenue <h:outputText value="#{TmpJsf.getMessage}"/>,</h3>-->
+<!--        </h:form>-->
+<!--        </body>-->
+<!--    </f:view>-->
+
+<!--    <ui:define name="bodyContent">-->
+<!--        Message : <h:outputLabel value="#{TmpJsf.message}"/>-->
+<!--    </ui:define>-->
+
+        <f:view>
+            <head>
+                <title>Page d'accueil de l'application</title>
+            </head>
+            <body>
+<!--                Message : <h:outputLabel value="toto"/>-->
+<!--                Message : <h:outputLabel value="#{TmpJsf.message}"/>-->
+                <p>Bienvenue <p:outputText value="#{TmpJsf.message}"/> !</p>
+            </body>
+        </f:view>
+
+</html>
