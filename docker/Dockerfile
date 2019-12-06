@@ -40,4 +40,4 @@ RUN wget https://jdbc.postgresql.org/download/postgresql-42.2.8.jar \
 			       create-jdbc-resource --connectionpoolid postgres-pool jdbc/postgres-pool && \
     ${ASADMIN} stop-domain
 
-COPY --from=build --chown=payara:payara /myapp/target/*-SNAPSHOT.war /opt/payara/deployments/server.war
+COPY --from=build --chown=payara:payara /myApp/target/*-SNAPSHOT.war /opt/payara/deployments/server.war

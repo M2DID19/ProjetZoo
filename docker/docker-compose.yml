@@ -1,7 +1,10 @@
 version: '3'
 services:
     payara-full:
-        build: .
+
+        build:
+          context: ..
+          dockerfile: docker/Dockerfile
         ports:
             - "8080:8080"
             - "4848:4848"
