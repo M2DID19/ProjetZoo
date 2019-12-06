@@ -1,5 +1,6 @@
 package fr.univtln.M2DID19.ProjetZoo.ejb;
 
+import fr.univtln.M2DID19.ProjetZoo.Annotation.Test;
 import fr.univtln.M2DID19.ProjetZoo.DAO.DAO;
 import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
 
@@ -34,7 +35,12 @@ public class GestionAigle implements GestionAigleLocal {
 //        dao2.find(Aigle.class, 5);
 //        transaction.commit();
 //        System.out.println("HALLO2" + dao);
-        return  dao2.findWithNamedQuery("findAllAigle");
+        List<Aigle> liste = dao2.findWithNamedQuery("findAllAigle");
+        @Test(value=Test.Case.UPPER)
+        String nom = liste.get(0).getNom();
+
+        return liste;
+//        return  dao2.findWithNamedQuery("findAllAigle");
     }
 
     public Aigle findAigle() {
