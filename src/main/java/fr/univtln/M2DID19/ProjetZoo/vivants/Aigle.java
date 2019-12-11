@@ -20,7 +20,7 @@ import java.io.Serializable;
 public class Aigle extends Oiseau implements Serializable {
 
     @Column(name="vitesse")
-    @Min(0)
+//    @Min(0)
     private int vitesse;
 
     @ManyToOne(cascade = CascadeType.ALL)

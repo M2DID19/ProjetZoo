@@ -7,10 +7,9 @@ import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import javax.ws.rs.core.MediaType;
+import java.sql.SQLException;
 import java.util.List;
 
 @Path("/aigle")
@@ -19,8 +18,8 @@ public class AigleREST {
 
 //    @Inject DAO dao;
 //    @Inject GestionAigle gestionAigle;
-    GestionAigle gestionAigle = new GestionAigle();
-    Aigle aigle = new Aigle();
+    @EJB GestionAigle gestionAigle;
+//    Aigle aigle = new Aigle();
 //    @EJB GestionAigleLocal gestionAigle;
 
 
@@ -36,11 +35,27 @@ public class AigleREST {
     @Path("/aigles")
     @Produces(MediaType.APPLICATION_JSON)
     public Aigle getAigle() {
+        Aigle aigle = new Aigle();
         aigle = gestionAigle.findAigle();
 //        System.out.println("DDDDDDDDDDDDDDDDDDDDDDDDDDDDDDD \n\n\n" + aigle + "\n\n\n\n");
         return aigle;
     }
 
+    @POST
+    @Path("/persistAigle/{nom}/{id}")
+    @Consumes(MediaType.APPLICATION_JSON)
+    public void persistAigle(@PathParam("nom") String nom, @PathParam("id") int id) {
+        try {
+            Aigle aigle = new Aigle();
+            aigle.setNom(nom);
+            aigle.setId(id);
+            System.out.println("nom " + nom);
+            System.out.println("aigle= " + aigle);
+            gestionAigle.postAigle(aigle);
+        } catch (Exception e) {
+            System.out.println(e.getStackTrace());
+        }
+    }
 
 //    @GET
 //    @Path("/aigles")

@@ -3,19 +3,26 @@ package fr.univtln.M2DID19.ProjetZoo.ejb;
 import fr.univtln.M2DID19.ProjetZoo.DAO.DAO;
 import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
 
-import javax.annotation.Resource;
-import javax.ejb.*;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.transaction.*;
+import java.io.Serializable;
 import java.util.List;
 
-@Stateless(mappedName = "Aigle")
-@TransactionManagement(TransactionManagementType.CONTAINER)
-public class GestionAigle implements GestionAigleLocal {
+//@TransactionManagement(TransactionManagementType.CONTAINER)
+@Stateless
+@LocalBean
+public class GestionAigle implements GestionAigleLocal,Serializable {
 
-//    @Inject DAO dao;
-    DAO dao2 = new DAO();
+    @Inject private DAO dao;
+//    DAO dao2 = new DAO();
+//    EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
+//    EntityManager em = emf.createEntityManager();
 //    @Resource private UserTransaction transaction;
+//    @PersistenceUnit (name="authors")
+//    EntityManagerFactory emf;
+//    @PersistenceContext
+//    EntityManager em;
 
     public String communiquer() {
         int a = (int) Math.random() * 25;
@@ -34,13 +41,22 @@ public class GestionAigle implements GestionAigleLocal {
 //        dao2.find(Aigle.class, 5);
 //        transaction.commit();
 //        System.out.println("HALLO2" + dao);
-        return  dao2.findWithNamedQuery("findAllAigle");
+        System.out.println("ALLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
+        return  dao.findWithNamedQuery("findAllAigle");
     }
 
     public Aigle findAigle() {
         Aigle aigle = new Aigle();
-        aigle = (Aigle) dao2.find(Aigle.class, 5);
+        aigle = (Aigle) dao.find(Aigle.class, 5);
         return aigle;
+    }
+
+    public void postAigle(Aigle aigle) {
+//            transaction.begin();
+        System.out.println("BBBBBBBBBBBBBBBBBBBBBBB");
+            dao.create(aigle);
+//            transaction.commit();
+
     }
 
 }
