@@ -1,24 +1,40 @@
 package fr.univtln.M2DID19.ProjetZoo.DAO;
 
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.persistence.*;
+import javax.validation.ConstraintViolationException;
 import java.util.List;
 
-
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class DAO<T> implements CrudService{
 
-    @PersistenceContext
-    EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
-    EntityManager em = emf.createEntityManager();
+    public DAO() {
+        System.out.println("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTt");
+    }
+
+    //    @PersistenceContext
+//    EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
+//    EntityManager em = emf.createEntityManager();
 //    @PersistenceContext private EntityManager em;
 //    @PersistenceContext (unitName = "authors")
 //    private EntityManager em;
 //    EntityTransaction transac = em.getTransaction();
-
+    @PersistenceContext (unitName = "authors")
+    EntityManager em;
     @Override
     public Object create(Object o) {
-//        transac.begin();
-        em.persist(o);
-//        transac.commit();
+        System.out.println("OOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
+        try {
+            System.out.println("HALLOOOOO");
+            System.out.println(em);
+            em.persist(o);
+            System.out.println("AAAAAAAAAAAAAAAA");
+        } catch (ConstraintViolationException e) {
+            System.out.println("FFFFFFFFFFFFFFFFFFFFFFFF");
+            System.out.println(e);
+        }
+        System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
         return o;
     }
 

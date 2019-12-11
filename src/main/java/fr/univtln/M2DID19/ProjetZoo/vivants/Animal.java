@@ -19,10 +19,10 @@ import javax.validation.constraints.Size;
 public abstract class Animal implements Comparable<Animal>{
 
     @Id
-    @GeneratedValue
+   @GeneratedValue
     private int id;
     @Column(name="nom")
-    @Size(min = 1,max = 50)
+//    @Size(min = 1,max = 50)
     private String nom;
 
 //    @Getter @Setter
@@ -36,7 +36,7 @@ public abstract class Animal implements Comparable<Animal>{
 
     @Override
     public String toString() {
-        return "mon nom est "+this.nom+", et je suis un animal, ";
+        return "mon id est " + this.getId() + " mon nom est " + this.nom + ", et je suis un animal, ";
     }
 
     @Override

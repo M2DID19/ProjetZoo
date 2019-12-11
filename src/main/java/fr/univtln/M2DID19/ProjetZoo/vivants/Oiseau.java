@@ -24,7 +24,7 @@ public abstract class Oiseau extends Animal implements Carnivore{
     }
     @Enumerated(EnumType.STRING)
     @Column(name="couleur")
-    @NotNull
+//    @NotNull
     private couleur couleur;
 
     @Override
