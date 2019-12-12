@@ -1,35 +1,65 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://java.sun.com/jsf/facelets"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:f="http://java.sun.com/jsf/core"
-      xmlns:p="http://xmlns.jcp.org/jsf/html">
-<!--                xmlns:p="http://primefaces.org/ui"-->
-<!--                xmlns:f="http://java.sun.com/jsf/core"-->
-<!--    <f:view>-->
-<!--        <head>-->
-<!--            <title>Page d'accueil de l'application</title>-->
-<!--        </head>-->
-<!--        <body>-->
-<!--        <h:form>-->
-<!--            <h3>Bienvenue <h:outputText value="#{TmpJsf.getMessage}"/>,</h3>-->
-<!--        </h:form>-->
-<!--        </body>-->
-<!--    </f:view>-->
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
 
-<!--    <ui:define name="bodyContent">-->
-<!--        Message : <h:outputLabel value="#{TmpJsf.message}"/>-->
-<!--    </ui:define>-->
+<!--            <head>-->
+<!--                <title>Page d'accueil de l'application</title>-->
+<!--            </head>-->
+<!--            <body>-->
+<!--&lt;!&ndash;                Message : <h:outputLabel value="toto"/>&ndash;&gt;-->
+<!--&lt;!&ndash;                Message : <h:outputLabel value="#{TmpJsf.message}"/>&ndash;&gt;-->
+<!--                <p>Bienvenue <p:outputText value="#{TmpJsf.message}"/> !</p>-->
 
-        <f:view>
-            <head>
-                <title>Page d'accueil de l'application</title>
-            </head>
-            <body>
-<!--                Message : <h:outputLabel value="toto"/>-->
-<!--                Message : <h:outputLabel value="#{TmpJsf.message}"/>-->
-                <p>Bienvenue <p:outputText value="#{TmpJsf.message}"/> !</p>
-            </body>
-        </f:view>
+
+
+
+<!--                <p:dataTable var="car" value="#{TmpJsf.message}">-->
+<!--                    <p:column headerText="HALLLLO">-->
+<!--                        <h:outputText value="#{car.message}" />-->
+<!--                    </p:column>-->
+
+<!--                    <p:column headerText="Color">-->
+<!--                        <p> une valeur </p>-->
+<!--                    </p:column>-->
+<!--                </p:dataTable>-->
+
+
+<!--            </body>-->
+
+
+    <f:view>
+        <h:head>
+        </h:head>
+
+        <h:body>
+            <!--    <p:spinner />-->
+            <!--    <p>Bienvenue <h: outputText value="#{TmpJsf.message}"/> !</p>-->
+
+
+
+
+            <p:dataTable var="car" value="#{TmpJsf.liste}">
+                <p:column headerText="HALLLLO">
+                    <h:outputText value="#{car.message}" />
+                </p:column>
+                <p:column headerText="HALLLLO2">
+                    <h:outputText value="#{car.id}" />
+                </p:column>
+
+                <p:column headerText="un aigle?">
+                    <h:outputText value="#{TmpJsf.message}" />
+                </p:column>
+                <p:column headerText="Color">
+                    <p> une valeur </p>
+                </p:column>
+                <p:column headerText="test?">
+                    <p> une autre valeur </p>
+                </p:column>
+            </p:dataTable>
+        </h:body>
+
+    </f:view>
 
 </html>

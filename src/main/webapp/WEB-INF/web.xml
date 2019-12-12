@@ -12,14 +12,6 @@
         <url-pattern>/webresource/*</url-pattern>
     </servlet-mapping>
 
-
-
-    <!--<display-name>JSF</display-name>-->
-    <context-param>
-        <param-name>javax.faces.PROJECT_STAGE</param-name>
-        <param-value>Development</param-value>
-    </context-param>
-
     <!-- Servlet servant de controleur-->
     <servlet>
         <servlet-name>Faces</servlet-name>
