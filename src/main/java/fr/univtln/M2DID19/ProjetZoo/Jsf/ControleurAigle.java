@@ -9,30 +9,19 @@ import javax.inject.Named;
 import java.io.Serializable;
 import java.util.List;
 
-@Named("TmpJsf")
+@Named("ControleurAigle")
 @RequestScoped
-public class TmpJsf implements Serializable {
-    private String message = "CA MARCHE !!!!!";
+public class ControleurAigle implements Serializable {
     @EJB GestionAigle gestionAigle;
 
     private List<Aigle> liste;
 
     @PostConstruct
     public void init() {
-        System.out.println("????????????????????");
         liste = gestionAigle.findAllAigle();
     }
 
     public List<Aigle> getListe() {
         return liste;
-    }
-
-    public String getMessage() {
-        System.out.println("AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA");
-        return message;
-    }
-
-    public void setMessage(String string) {
-        message = string;
     }
 }

@@ -24,12 +24,12 @@ public abstract class Oiseau extends Animal implements Carnivore{
     }
     @Enumerated(EnumType.STRING)
     @Column(name="couleur")
-//    @NotNull
+    @NotNull
     private couleur couleur;
 
     @Override
     public String toString() {
-        return super.toString()+", je suis un oiseau, ";
+        return super.toString()+"je suis un oiseau, ";
     }
 
 

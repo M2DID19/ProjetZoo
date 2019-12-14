@@ -14,14 +14,6 @@ import java.util.List;
 public class GestionAigle implements GestionAigleLocal,Serializable {
 
     @Inject private DAO dao;
-//    DAO dao2 = new DAO();
-//    EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
-//    EntityManager em = emf.createEntityManager();
-//    @Resource private UserTransaction transaction;
-//    @PersistenceUnit (name="authors")
-//    EntityManagerFactory emf;
-//    @PersistenceContext
-//    EntityManager em;
 
     public String communiquer() {
         int a = (int) Math.random() * 25;
@@ -32,16 +24,7 @@ public class GestionAigle implements GestionAigleLocal,Serializable {
     }
 
 
-//    @TransactionAttribute(TransactionAttributeType.REQUIRED)
     public  List<Aigle> findAllAigle() {
-//        @Resource private UserTransaction transaction;
-//        transaction.begin();
-//        List<Aigle> liste = dao2.findWithNamedQuery("findAllAigle");
-//        dao2.find(Aigle.class, 5);
-//        transaction.commit();
-//        System.out.println("HALLO2" + dao);
-
-        System.out.println("ALLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLLL");
         return  dao.findWithNamedQuery("findAllAigle");
     }
 
@@ -52,10 +35,7 @@ public class GestionAigle implements GestionAigleLocal,Serializable {
     }
 
     public void postAigle(Aigle aigle) {
-//            transaction.begin();
-        System.out.println("BBBBBBBBBBBBBBBBBBBBBBB");
             dao.create(aigle);
-//            transaction.commit();
 
     }
 

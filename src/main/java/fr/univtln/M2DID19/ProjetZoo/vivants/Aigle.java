@@ -7,7 +7,6 @@ import lombok.Setter;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
 
-import javax.validation.constraints.Min;
 import java.io.Serializable;
 
 
@@ -20,7 +19,6 @@ import java.io.Serializable;
 public class Aigle extends Oiseau implements Serializable {
 
     @Column(name="vitesse")
-//    @Min(0)
     private int vitesse;
 
     @ManyToOne(cascade = CascadeType.ALL)
@@ -31,16 +29,4 @@ public class Aigle extends Oiseau implements Serializable {
     public String toString() {
         return super.toString()+"je suis un aigle";
     }
-
-//    @Override
-//    public int hashCode() {
-//
-//        return this.getNom().hashCode();
-//    }
-//
-//    public boolean equals(Aigle aigle) {
-//        if (this.getNom()==aigle.getNom())
-//            return true;
-//        return false;
-//    }
 }

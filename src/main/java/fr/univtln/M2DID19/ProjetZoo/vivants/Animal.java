@@ -22,14 +22,11 @@ public abstract class Animal implements Comparable<Animal>{
    @GeneratedValue
     private int id;
     @Column(name="nom")
-//    @Size(min = 1,max = 50)
     private String nom;
 
-//    @Getter @Setter
     @JsonbTransient
     private Zoo zoo;
 
-//    @Getter @Setter
     @JsonbTransient
     private Faune faune;
 
@@ -52,7 +49,7 @@ public abstract class Animal implements Comparable<Animal>{
     }
 
     public boolean equals(Animal animal) {
-        if (this.getId()==animal.getId() /*|| this.getNom()==animal.getNom()*/)
+        if (this.getId()==animal.getId())
             return true;
         return false;
     }

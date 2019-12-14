@@ -9,32 +9,16 @@ import java.util.List;
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class DAO<T> implements CrudService{
 
-    public DAO() {
-        System.out.println("TTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTTt");
-    }
-
-    //    @PersistenceContext
-//    EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
-//    EntityManager em = emf.createEntityManager();
-//    @PersistenceContext private EntityManager em;
-//    @PersistenceContext (unitName = "authors")
-//    private EntityManager em;
-//    EntityTransaction transac = em.getTransaction();
     @PersistenceContext (unitName = "authors")
     EntityManager em;
     @Override
     public Object create(Object o) {
-        System.out.println("OOOOOOOOOOOOOOOOOOOOOOOOOOOOO");
         try {
-            System.out.println("HALLOOOOO");
             System.out.println(em);
             em.persist(o);
-            System.out.println("AAAAAAAAAAAAAAAA");
         } catch (ConstraintViolationException e) {
-            System.out.println("FFFFFFFFFFFFFFFFFFFFFFFF");
             System.out.println(e);
         }
-        System.out.println("GGGGGGGGGGGGGGGGGGGGGGGGGGGGGGGG");
         return o;
     }
 
@@ -51,9 +35,7 @@ public class DAO<T> implements CrudService{
     @Override
     public void delete(Class type, Object id) {
         Object ref = em.getReference(type, id);
-//        transac.begin();
         em.remove(ref);
-//        transac.commit();
     }
 
     @Override
