@@ -1,6 +1,6 @@
 package fr.univtln.M2DID19.ProjetZoo.structures;
 
-import fr.univtln.M2DID19.ProjetZoo.vivant.Animal;
+import fr.univtln.M2DID19.ProjetZoo.vivants.Animal;
 
 import lombok.Getter;
 import lombok.Setter;

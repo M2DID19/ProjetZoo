@@ -8,11 +8,11 @@
     <persistence-unit name="authors" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>jdbc/postgres-pool</jta-data-source>
-        <class>fr.univtln.M2DID19.ProjetZoo.vivant.Aigle</class>
-        <class>fr.univtln.M2DID19.ProjetZoo.vivant.Lapin</class>
-        <class>fr.univtln.M2DID19.ProjetZoo.vivant.Vache</class>
-        <class>fr.univtln.M2DID19.ProjetZoo.vivant.Plante</class>
-        <class>fr.univtln.M2DID19.ProjetZoo.vivant.Faune</class>
+        <class>fr.univtln.M2DID19.ProjetZoo.vivants.Aigle</class>
+        <class>fr.univtln.M2DID19.ProjetZoo.vivants.Lapin</class>
+        <class>fr.univtln.M2DID19.ProjetZoo.vivants.Vache</class>
+        <class>fr.univtln.M2DID19.ProjetZoo.vivants.Plante</class>
+        <class>fr.univtln.M2DID19.ProjetZoo.vivants.Faune</class>
         <class>fr.univtln.M2DID19.ProjetZoo.structures.Zoo</class>
         <properties>
             <!-- Les paramètres de connexions -->

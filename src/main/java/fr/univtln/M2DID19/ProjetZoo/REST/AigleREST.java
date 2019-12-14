@@ -1,7 +1,7 @@
 package fr.univtln.M2DID19.ProjetZoo.REST;
 
 import fr.univtln.M2DID19.ProjetZoo.ejb.GestionAigle;
-import fr.univtln.M2DID19.ProjetZoo.vivant.Aigle;
+import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
 
 import javax.ejb.EJB;
 import javax.ws.rs.*;

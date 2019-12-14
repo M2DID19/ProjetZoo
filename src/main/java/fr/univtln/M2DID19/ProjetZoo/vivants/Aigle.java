@@ -1,4 +1,4 @@
-package fr.univtln.M2DID19.ProjetZoo.vivant;
+package fr.univtln.M2DID19.ProjetZoo.vivants;
 
 //import lombok.Builder;
 import lombok.Getter;
