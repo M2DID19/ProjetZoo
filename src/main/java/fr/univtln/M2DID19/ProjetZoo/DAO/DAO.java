@@ -1,18 +1,24 @@
 package fr.univtln.M2DID19.ProjetZoo.DAO;
 
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.persistence.*;
+import javax.validation.ConstraintViolationException;
+import java.util.List;
 
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class DAO<T> implements CrudService{
 
-    @PersistenceContext
+    @PersistenceContext (unitName = "authors")
     EntityManager em;
-    EntityTransaction transac = em.getTransaction();
-
     @Override
     public Object create(Object o) {
-        transac.begin();
-        em.persist(o);
-        transac.commit();
+        try {
+            System.out.println(em);
+            em.persist(o);
+        } catch (ConstraintViolationException e) {
+            System.out.println(e);
+        }
         return o;
     }
 
@@ -29,8 +35,11 @@ public class DAO<T> implements CrudService{
     @Override
     public void delete(Class type, Object id) {
         Object ref = em.getReference(type, id);
-        transac.begin();
         em.remove(ref);
-        transac.commit();
+    }
+
+    @Override
+    public List findWithNamedQuery(String queryName) {
+        return this.em.createNamedQuery(queryName).getResultList();
     }
 }

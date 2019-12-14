@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+<h:head>
+    <title>Aigles</title>
+</h:head>
+<h:body>
+    <h1>Voici la liste des aigles existant</h1>
+
+    <p:dataTable var="tableAigles" value="#{ControleurAigle.liste}">
+        <p:column headerText="Id">
+            <h:outputText value="#{tableAigles.id}" />
+        </p:column>
+
+        <p:column headerText="Nom">
+            <h:outputText value="#{tableAigles.nom}" />
+        </p:column>
+
+        <p:column headerText="Couleur">
+            <h:outputText value="#{tableAigles.couleur}" />
+        </p:column>
+
+        <p:column headerText="Vitesse">
+            <h:outputText value="#{tableAigles.vitesse}" />
+        </p:column>
+    </p:dataTable>
+
+</h:body>
+</html>

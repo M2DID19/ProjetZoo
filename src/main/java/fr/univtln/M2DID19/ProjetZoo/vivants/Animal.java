@@ -5,6 +5,7 @@ import fr.univtln.M2DID19.ProjetZoo.structures.Zoo;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Column;
 
 import javax.persistence.GeneratedValue;
@@ -18,21 +19,21 @@ import javax.validation.constraints.Size;
 public abstract class Animal implements Comparable<Animal>{
 
     @Id
-    @GeneratedValue
+   @GeneratedValue
     private int id;
     @Column(name="nom")
-    @Size(min = 1,max = 50)
     private String nom;
 
-    @Getter @Setter
+    @JsonbTransient
     private Zoo zoo;
 
-    @Getter @Setter
+    @JsonbTransient
     private Faune faune;
+
 
     @Override
     public String toString() {
-        return "mon nom est "+this.nom+", et je suis un animal, ";
+        return "mon id est " + this.getId() + " mon nom est " + this.nom + ", et je suis un animal, ";
     }
 
     @Override
@@ -48,7 +49,7 @@ public abstract class Animal implements Comparable<Animal>{
     }
 
     public boolean equals(Animal animal) {
-        if (this.getId()==animal.getId() /*|| this.getNom()==animal.getNom()*/)
+        if (this.getId()==animal.getId())
             return true;
         return false;
     }

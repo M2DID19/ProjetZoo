@@ -15,7 +15,6 @@ import javax.validation.constraints.NotNull;
 @MappedSuperclass
 public abstract class Oiseau extends Animal implements Carnivore{
 
-    @Getter
     public enum couleur{
         ROUGE,
         JAUNE,
@@ -28,10 +27,9 @@ public abstract class Oiseau extends Animal implements Carnivore{
     @NotNull
     private couleur couleur;
 
-
     @Override
     public String toString() {
-        return super.toString()+", je suis un oiseau, ";
+        return super.toString()+"je suis un oiseau, ";
     }
 
 
