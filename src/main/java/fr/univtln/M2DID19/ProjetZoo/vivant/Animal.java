@@ -1,4 +1,4 @@
-package fr.univtln.M2DID19.ProjetZoo.vivants;
+package fr.univtln.M2DID19.ProjetZoo.vivant;
 
 
 import fr.univtln.M2DID19.ProjetZoo.structures.Zoo;
@@ -11,7 +11,7 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.Min;
 
 @Getter
 @Setter
@@ -22,6 +22,7 @@ public abstract class Animal implements Comparable<Animal>{
    @GeneratedValue
     private int id;
     @Column(name="nom")
+    @Min(3)
     private String nom;
 
     @JsonbTransient

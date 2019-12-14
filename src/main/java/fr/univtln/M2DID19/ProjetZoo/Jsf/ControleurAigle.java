@@ -1,6 +1,6 @@
 package fr.univtln.M2DID19.ProjetZoo.Jsf;
 import fr.univtln.M2DID19.ProjetZoo.ejb.GestionAigle;
-import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
+import fr.univtln.M2DID19.ProjetZoo.vivant.Aigle;
 
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;

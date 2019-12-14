@@ -1,4 +1,4 @@
-package fr.univtln.M2DID19.ProjetZoo.vivants;
+package fr.univtln.M2DID19.ProjetZoo.vivant;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -24,7 +24,7 @@ public abstract class Oiseau extends Animal implements Carnivore{
     }
     @Enumerated(EnumType.STRING)
     @Column(name="couleur")
-    @NotNull
+//    @NotNull
     private couleur couleur;
 
     @Override

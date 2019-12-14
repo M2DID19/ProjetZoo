@@ -1,7 +1,7 @@
 package fr.univtln.M2DID19.ProjetZoo.ejb;
 
 import fr.univtln.M2DID19.ProjetZoo.DAO.DAO;
-import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
+import fr.univtln.M2DID19.ProjetZoo.vivant.Aigle;
 
 import javax.ejb.LocalBean;
 import javax.ejb.Stateless;
