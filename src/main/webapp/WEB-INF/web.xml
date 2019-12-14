@@ -14,17 +14,25 @@
 
     <!-- Servlet servant de controleur-->
     <servlet>
-        <servlet-name>Faces</servlet-name>
+        <servlet-name>Faces Servlet</servlet-name>
         <servlet-class>javax.faces.webapp.FacesServlet</servlet-class>
         <!-- au demarrage de l'application-->
         <load-on-startup> 1 </load-on-startup>
     </servlet>
 
-    <!--Le mapping de la servlet-->
+    <!--Le mapping de la page d'accueil-->
     <servlet-mapping>
-        <servlet-name>Faces</servlet-name>
+        <servlet-name>Faces Servlet</servlet-name>
         <url-pattern>/faces/*</url-pattern>
     </servlet-mapping>
+
+
+    <!--Le mapping des pages xhtml-->
+    <servlet-mapping>
+        <servlet-name>Faces Servlet</servlet-name>
+        <url-pattern>*.xhtml</url-pattern>
+    </servlet-mapping>
+
 
 
     <welcome-file-list>

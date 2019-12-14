@@ -12,7 +12,7 @@ import java.util.List;
 @Named("TmpJsf")
 @RequestScoped
 public class TmpJsf implements Serializable {
-    private String message = "bonjour";
+    private String message = "CA MARCHE !!!!!";
     @EJB GestionAigle gestionAigle;
 
     private List<Aigle> liste;
