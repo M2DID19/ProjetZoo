@@ -8,14 +8,12 @@ import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
 import javax.validation.Valid;
-import javax.validation.constraints.NotNull;
 
 @Getter
 @Setter
 @MappedSuperclass
 public abstract class Oiseau extends Animal implements Carnivore{
 
-    @Getter
     public enum couleur{
         ROUGE,
         JAUNE,
@@ -25,13 +23,12 @@ public abstract class Oiseau extends Animal implements Carnivore{
     }
     @Enumerated(EnumType.STRING)
     @Column(name="couleur")
-    @NotNull
+//    @NotNull
     private couleur couleur;
-
 
     @Override
     public String toString() {
-        return super.toString()+", je suis un oiseau, ";
+        return super.toString()+"je suis un oiseau, ";
     }
 
 

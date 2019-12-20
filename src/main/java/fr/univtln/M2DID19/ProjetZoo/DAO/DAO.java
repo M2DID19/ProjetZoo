@@ -1,18 +1,40 @@
 package fr.univtln.M2DID19.ProjetZoo.DAO;
 
+import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
+import javax.ejb.TransactionManagement;
+import javax.ejb.TransactionManagementType;
 import javax.persistence.*;
+import javax.validation.ConstraintViolationException;
+import java.util.List;
 
+@TransactionManagement(TransactionManagementType.CONTAINER)
 public class DAO<T> implements CrudService{
 
-    @PersistenceContext
-    EntityManager em;
-    EntityTransaction transac = em.getTransaction();
+    public DAO() {
+        System.out.println("hello i'm in DAO constructor ...");
+    }
 
+    //    @PersistenceContext
+//    EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
+//    EntityManager em = emf.createEntityManager();
+//    @PersistenceContext private EntityManager em;
+//    @PersistenceContext (unitName = "authors")
+//    private EntityManager em;
+//    EntityTransaction transac = em.getTransaction();
+    @PersistenceContext (unitName = "authors")
+    EntityManager em;
     @Override
     public Object create(Object o) {
-        transac.begin();
-        em.persist(o);
-        transac.commit();
+        System.out.println("Hello i'm in create ...");
+        try {
+            System.out.println("hello i'm in create's try ...");
+            System.out.println(em);
+            em.persist(o);
+            System.out.println("hello i'm after persistence ...");
+        } catch (ConstraintViolationException e) {
+            System.out.println(e);
+        }
+
         return o;
     }
 
@@ -22,15 +44,34 @@ public class DAO<T> implements CrudService{
     }
 
     @Override
-    public Object update(Object o) {
-        return (Object) em.merge(o);
-    }
+    public Object update(Object o) { return (Object) em.merge(o); }
+
 
     @Override
-    public void delete(Class type, Object id) {
-        Object ref = em.getReference(type, id);
-        transac.begin();
-        em.remove(ref);
-        transac.commit();
+    public void delete(Object o){
+        em.remove(o);
+    }
+
+    public Aigle findAigle(int id_aigle){return em.find(Aigle.class,id_aigle);}
+
+    @Override
+    public List findWithNamedQuery(String queryName) {
+        return this.em.createNamedQuery(queryName).getResultList();
+    }
+
+    public static boolean nomValide(String nom) {
+        if(nom.length()<4 || nom.length()>20)
+            return false;
+        for (char c : nom.toCharArray()) {
+            if (!Character.isLetter(c))
+                return false;
+        }return true;
+    }
+
+    public boolean existeDeja(int idAigle) {
+        Aigle aigleFounded=findAigle(idAigle);
+        if(aigleFounded==null)
+            return true;
+        return false;
     }
 }

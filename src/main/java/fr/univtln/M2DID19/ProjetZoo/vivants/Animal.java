@@ -1,16 +1,16 @@
 package fr.univtln.M2DID19.ProjetZoo.vivants;
 
 
-import fr.univtln.M2DID19.ProjetZoo.structures.Zoo;
+import fr.univtln.M2DID19.ProjetZoo.annotations.Nom;
 import lombok.Getter;
 import lombok.Setter;
 
+import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Column;
 
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
-import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -21,18 +21,16 @@ public abstract class Animal implements Comparable<Animal>{
     @GeneratedValue
     private int id;
     @Column(name="nom")
-    @Size(min = 1,max = 50)
     private String nom;
-
-    @Getter @Setter
-    private Zoo zoo;
-
-    @Getter @Setter
+    @JsonbTransient
+    private int id_zoo;
+    @JsonbTransient
     private Faune faune;
+
 
     @Override
     public String toString() {
-        return "mon nom est "+this.nom+", et je suis un animal, ";
+        return "mon id est " + this.getId() + " mon nom est " + this.nom + ", et je suis un animal, ";
     }
 
     @Override
@@ -40,6 +38,10 @@ public abstract class Animal implements Comparable<Animal>{
         if (this.getClass()==animal.getClass() && this.getId()==animal.getId())
             return 1;
         return 0;
+    }
+    @Nom
+    public String getNom() {
+        return nom;
     }
 
     public int hashCode() {
@@ -52,6 +54,7 @@ public abstract class Animal implements Comparable<Animal>{
             return true;
         return false;
     }
+
 
 
 }

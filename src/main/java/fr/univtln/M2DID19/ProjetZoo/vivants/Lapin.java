@@ -32,17 +32,6 @@ public class Lapin extends Mammifere implements Herbivore{
     private Faune faune;
 
 
-//    @Override
-//    public int hashCode() {
-//
-//        return this.getNom().hashCode();
-//    }
-//    public boolean equals(Lapin lapin) {
-//        if (this.getNom()==lapin.getNom())
-//            return true;
-//        return false;
-//    }
-
     @Override
     public void brouter(Plante plante) {
 

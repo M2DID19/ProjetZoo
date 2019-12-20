@@ -13,7 +13,8 @@ public class Zoo {
 
     @Id
     @GeneratedValue(strategy = GenerationType.TABLE)
-    private int id;
+    @Getter @Setter
+    private int id_zoo;
     @Getter @Setter
 
     private String nom;
@@ -26,7 +27,7 @@ public class Zoo {
         if(this.zooL.contains(animal))
             return 0;
         this.zooL.add(animal);
-        animal.setZoo(this);
+        animal.setId_zoo(this.getId_zoo());
         return 1;
     }
 
