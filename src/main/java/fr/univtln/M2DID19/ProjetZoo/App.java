@@ -1,19 +1,11 @@
 package fr.univtln.M2DID19.ProjetZoo;
 
-import fr.univtln.M2DID19.ProjetZoo.DAO.DAO;
-import fr.univtln.M2DID19.ProjetZoo.REST.Tmp;
-import fr.univtln.M2DID19.ProjetZoo.ejb.GestionAigle;
 import fr.univtln.M2DID19.ProjetZoo.exceptions.NomNonValideException;
 import fr.univtln.M2DID19.ProjetZoo.exceptions.VitesseNonValideException;
-import fr.univtln.M2DID19.ProjetZoo.structures.Zoo;
-import fr.univtln.M2DID19.ProjetZoo.vivants.*;
 import org.apache.log4j.PatternLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import javax.persistence.EntityManager;
-import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
 import java.lang.invoke.MethodHandles;
 
 
@@ -32,6 +24,7 @@ public class App{
     public static void main(String[] args) throws NomNonValideException, VitesseNonValideException {
         logger.info("App started.");
         logger.debug("About to talk :");
+
         System.out.println("Hello world ... ");
 //        EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
 //        EntityManager em = emf.createEntityManager();
@@ -169,15 +162,15 @@ public class App{
 //        String s="HELLO";
 //        DAO dao=new DAO();
 //        System.out.println(dao.nomValide(s));
-        GestionAigle gs=new GestionAigle();
-        Oiseau.couleur couleur= Oiseau.couleur.GRIS;
-        Aigle aigle=null;
-        try {
-            aigle = new Aigle("hello ", 318, couleur, 1);
-        }
-        catch(Exception e){
-            e.getStackTrace();
-        }
+//        GestionAigle gs=new GestionAigle();
+//        Oiseau.couleur couleur= Oiseau.couleur.GRIS;
+//        Aigle aigle=null;
+//        try {
+//            aigle = new Aigle("hello ", 318, couleur, 1);
+//        }
+//        catch(Exception e){
+//            e.getStackTrace();
+//        }
     }
 
 }

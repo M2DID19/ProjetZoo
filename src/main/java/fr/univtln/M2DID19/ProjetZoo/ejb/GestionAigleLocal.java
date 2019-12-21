@@ -10,4 +10,8 @@ public interface GestionAigleLocal {
 
     public String communiquer();
     public List<Aigle> findAllAigle();
+//<<<<<<< HEAD
+//    public void postAigle(Aigle aigle);
+//=======
+//>>>>>>> development
 }

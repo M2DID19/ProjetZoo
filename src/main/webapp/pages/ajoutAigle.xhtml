@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+<h:head>
+    <title>ajouter un aigle</title>
+</h:head>
+<h:body>
+    <h1>Veuillez remplir le formulaire pour ajouter un aigle</h1>
+
+
+    <h:form>
+
+        <p:growl id="bloc" showDetail="true" skipDetailIfEqualsSummary="true" />
+        <h:panelGrid columns="4" cellpadding="5">
+
+
+            <h:outputLabel for="name" value="Name:" style="font-weight:bold" />
+            <p:inputText id="name" value="#{ControleurAigle.nom}" required="true" requiredMessage="Le nom est obligatoire"/>
+
+<!--            <h:outputLabel for="couleur" value="Couleur:" style="font-weight:bold" />-->
+<!--            <p:inputText id="couleur" value="#{ControleurAigle.couleur}" required="true" requiredMessage="veuillez choisir une couleur"/>-->
+
+            <h:outputLabel for="vitesse" value="Vitesse:" style="font-weight:bold" />
+            <p:inputText id="vitesse" value="#{ControleurAigle.vitesse}" required="false"/>
+
+
+            <p:outputLabel for="couleur" value="Couleur: " />
+            <h:selectOneMenu id="couleur" value="#{ControleurAigle.couleur}" style="font-weight:bold">
+                <f:selectItem itemLabel="Select Couleur" itemValue="" noSelectionOption="true" />
+                <f:selectItems value="#{ControleurAigle.couleurs}" />
+            </h:selectOneMenu>
+
+
+<!--            <h:outputLabel for="zoo" value="Zoo:" style="font-weight:bold" />-->
+<!--            <p:inputText id="zoo" value="#{ControleurAigle.zoo}" required="false"/>-->
+
+<!--            <h:outputLabel for="faune" value="Faune:" style="font-weight:bold" />-->
+<!--            <p:inputText id="faune" value="#{ControleurAigle.faune}" required="true" requiredMessage="veuillez selectionner la faune" placeholder="1"/>-->
+
+
+            <h:commandButton value="Submit" action="#{ControleurAigle.ajouterAigle}" />
+
+
+<!--            <p:dialog header="Values" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false">-->
+<!--                <p:panelGrid columns="2" id="display" columnClasses="label,value">-->
+
+<!--                    <h:outputText value="CouleurTest:" />-->
+<!--                    <h:outputText value="#{ControleurAigle.couleur}" />-->
+<!--                </p:panelGrid>-->
+<!--            </p:dialog>-->
+
+
+        </h:panelGrid>
+    </h:form>
+
+</h:body>
+</html>

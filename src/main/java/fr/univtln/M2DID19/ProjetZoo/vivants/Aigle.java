@@ -6,14 +6,12 @@ import lombok.Getter;
 import lombok.Setter;
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.*;
-
+import java.io.Serializable;
 import javax.validation.ConstraintViolation;
 import javax.validation.Validation;
 import javax.validation.Validator;
 import javax.validation.ValidatorFactory;
-import java.io.Serializable;
 import java.util.Set;
-
 
 @Entity
 @Table(name="Aigle")
@@ -30,6 +28,13 @@ public class Aigle extends Oiseau implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonbTransient
     private Faune faune;
+//<<<<<<< HEAD
+//
+//    @Override
+//    public String toString() {
+//        return super.toString()+"je suis un aigle";
+//    }
+//=======
 
     @Override
     public String toString() {
@@ -58,5 +63,4 @@ public class Aigle extends Oiseau implements Serializable {
             System.out.println("Les données de l'aigle sont valides ... ");
         }
     }
-
 }

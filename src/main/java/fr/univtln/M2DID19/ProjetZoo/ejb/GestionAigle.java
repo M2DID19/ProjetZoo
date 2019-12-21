@@ -56,4 +56,16 @@ public class GestionAigle implements GestionAigleLocal,Serializable {
         return  dao.findWithNamedQuery("findAllAigle");
     }
 
+//<<<<<<< HEAD
+//    public Aigle findAigle() {
+//        Aigle aigle = new Aigle();
+//        aigle = (Aigle) dao.find(Aigle.class, 5);
+//        return aigle;
+//    }
+//
+//    public void postAigle(Aigle aigle) {
+//        dao.create(aigle);
+//    }
+//
+//=======
 }

@@ -28,7 +28,7 @@ public abstract class Oiseau extends Animal implements Carnivore{
 
     @Override
     public String toString() {
-        return super.toString()+"je suis un oiseau, ";
+        return super.toString()+"je suis un oiseau, ma couleur est " + getCouleur() + " , ";
     }
 
 

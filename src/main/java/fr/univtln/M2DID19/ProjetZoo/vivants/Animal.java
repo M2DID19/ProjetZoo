@@ -4,10 +4,8 @@ package fr.univtln.M2DID19.ProjetZoo.vivants;
 import fr.univtln.M2DID19.ProjetZoo.annotations.Nom;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.json.bind.annotation.JsonbTransient;
 import javax.persistence.Column;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.MappedSuperclass;
@@ -18,10 +16,16 @@ import javax.persistence.MappedSuperclass;
 public abstract class Animal implements Comparable<Animal>{
 
     @Id
-    @GeneratedValue
+   @GeneratedValue
     private int id;
     @Column(name="nom")
     private String nom;
+//<<<<<<< HEAD
+//
+//    @JsonbTransient
+//    private Zoo zoo;
+//
+//=======
     @JsonbTransient
     private int id_zoo;
     @JsonbTransient
@@ -50,7 +54,7 @@ public abstract class Animal implements Comparable<Animal>{
     }
 
     public boolean equals(Animal animal) {
-        if (this.getId()==animal.getId() /*|| this.getNom()==animal.getNom()*/)
+        if (this.getId()==animal.getId())
             return true;
         return false;
     }
