@@ -1,24 +1,20 @@
 package fr.univtln.M2DID19.ProjetZoo.Jsf;
+
 import fr.univtln.M2DID19.ProjetZoo.DAO.DAO;
 import fr.univtln.M2DID19.ProjetZoo.ejb.GestionAigle;
-import fr.univtln.M2DID19.ProjetZoo.structures.Zoo;
+import fr.univtln.M2DID19.ProjetZoo.exceptions.NomNonValideException;
+import fr.univtln.M2DID19.ProjetZoo.exceptions.VitesseNonValideException;
 import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
 import fr.univtln.M2DID19.ProjetZoo.vivants.Faune;
 import fr.univtln.M2DID19.ProjetZoo.vivants.Oiseau;
 import lombok.Getter;
 import lombok.Setter;
-
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
 import javax.faces.bean.ViewScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
-import javax.validation.constraints.NotNull;
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 @Named("ControleurAigle")
@@ -28,69 +24,121 @@ import java.util.List;
 public class ControleurAigle implements Serializable {
     @EJB GestionAigle gestionAigle;
     @Inject private DAO dao;
-    private List<Aigle> liste;
+    private List<Aigle> listeAigle;
+    private Aigle aigle;
+    private Oiseau.couleur[] couleurs;
+    private static String nom;
+    private static String nameSearch;
+    private static int id_zoo;
+    private static Oiseau.couleur couleur;
+    private static int vitesse;
+    private static Faune faune;
+    Aigle selectedAigle;
+    private static Aigle aigleFound;
 
-    //////////////////////////////////////////////////////////////////////
-
-    private ArrayList<enumCouleur> allCouleurs;
-
-    private  enumCouleur[] couleurs;
-
-    //////////////////////////////////////////////////////////////////////
-
-    private String nom;
-    private Zoo zoo;
-    private Faune faune;
-
-
-    public enum enumCouleur {
-        ROUGE,
-        JAUNE,
-        NOIR,
-        GRIS,
-
-//        @Override
-//        public boolean equals(Object object) {
-//            if (object instanceof String)
-//                object = enumCouleur.valueOf((String)object);
-//            return super.equals(object);
-//        }
+    public Aigle getAigleFound() {
+        return aigleFound;
     }
-    @Enumerated(EnumType.STRING)
-    @NotNull
-    private Oiseau.couleur couleur;
 
-    private int vitesse;
+    public void setAigleFound(Aigle aigleFound) {
+        this.aigleFound = aigleFound;
+    }
 
-    //////////////////////////////////////////////////////////////////////
+    public String getNameSearch() {
+        return nameSearch;
+    }
 
+    public void setNameSearch(String nameSearch) {
+        ControleurAigle.nameSearch = nameSearch;
+    }
+
+    public Aigle getSelectedAigle() {
+        return selectedAigle;
+    }
+
+    public void setSelectedAigle(Aigle selectedAigle) {
+        this.selectedAigle = selectedAigle;
+    }
+
+    public Aigle getAigle() {
+        return aigle;
+    }
+
+    public void setAigle(Aigle aigle) {
+        this.aigle = aigle;
+    }
+
+    public String getNom() {
+        return nom;
+    }
+
+    public void setNom(String nom) {
+        this.nom = nom;
+    }
+
+    public int getId_zoo() {
+        return id_zoo;
+    }
+
+    public void setId_zoo(int id_zoo) {
+        this.id_zoo = id_zoo;
+    }
+
+    public Oiseau.couleur getCouleur() {
+        return couleur;
+    }
+
+    public void setCouleur(Oiseau.couleur couleur) {
+        this.couleur = couleur;
+    }
+
+    public int getVitesse() {
+        return vitesse;
+    }
+
+    public void setVitesse(int vitesse) {
+        this.vitesse = vitesse;
+    }
 
     @PostConstruct
     public void init() {
-        liste = gestionAigle.findAllAigle();
-
-        allCouleurs = new ArrayList<>();
-        for (enumCouleur c: enumCouleur.values() ) {
-            allCouleurs.add(c);
-        }
-
-        couleurs = enumCouleur.values();
-        System.out.println("AAAAAAAAAAAAAAAAa " + Arrays.toString(couleurs));
-        System.out.println("BBBBBBBBBBBBBBBBB " + couleurs[0].getClass());
+        listeAigle = gestionAigle.findAllAigle();
+        couleurs = Oiseau.couleur.values();
     }
 
     public List<Aigle> getListe() {
-        return liste;
+        return listeAigle;
     }
 
-    public void ajouterAigle() {
-        Aigle aigle = new Aigle();
-        aigle.setNom(nom);
-        aigle.setCouleur(couleur);
-        aigle.setVitesse(vitesse);
-        aigle.setFaune(faune);
-        aigle.setId_zoo(zoo.getId_zoo());
-        System.out.println("l'aige est: " + aigle);
+    public void ajouterAigle() throws VitesseNonValideException, NomNonValideException{
+        aigle=new Aigle(nom,vitesse, couleur,id_zoo);
+        System.out.println(aigle);
         gestionAigle.createAigle(aigle);
     }
+//    public void supprimerAigle() {
+//        System.out.println("------------------------------");
+//        System.out.println(selectedAigle);
+////        listeAigle.remove(selectedAigle);
+////        gestionAigle.deleteAigle(selectedAigle.getId());
+//
+//    }
+    public void suppAigle(Aigle aigleuh){
+        System.out.println("---------------------------------------------------------------------------------------------");
+        listeAigle.remove(aigleuh);
+        gestionAigle.deleteAigle(aigleuh.getId());
+    }
+//    public void findAigleByName(){
+//        System.out.println("---------------------");
+//        for(Aigle ii:listeAigle){
+//            if(ii.getNom()==nameSearch)
+//                aigleFound= ii;
+//        }
+//        System.out.println(aigleFound);
+//    }
+    public void findAigleParNom(){
+        System.out.println(nameSearch);
+       aigleFound= gestionAigle.findAigleByName(nameSearch);
+        System.out.println(aigleFound);
+    }
+
 }

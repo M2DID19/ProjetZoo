@@ -9,41 +9,17 @@ import java.util.List;
 
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class DAO<T> implements CrudService{
-
-//<<<<<<< HEAD
-//    @PersistenceContext (unitName = "authors")
-//    EntityManager em;
-//
-//=======
     public DAO() {
         System.out.println("hello i'm in DAO constructor ...");
     }
-//>>>>>>> development
 
-    //    @PersistenceContext
-//    EntityManagerFactory emf = Persistence.createEntityManagerFactory("authors");
-//    EntityManager em = emf.createEntityManager();
-//    @PersistenceContext private EntityManager em;
-//    @PersistenceContext (unitName = "authors")
-//    private EntityManager em;
-//    EntityTransaction transac = em.getTransaction();
     @PersistenceContext (unitName = "authors")
     EntityManager em;
     @Override
     public Object create(Object o) {
-//<<<<<<< HEAD
-//        try {
-//            System.out.println("alo alo");
-//            System.out.println(o);
-//            System.out.println(o.getClass());
-//            em.persist(o);
-//        } catch (ConstraintViolationException e) {
-//            System.out.println(e);
-//        }
         System.out.println("Hello i'm in create ...");
         try {
-            System.out.println("hello i'm in create's try ...");
-            System.out.println(em);
+            System.out.println("hello i'm in create's try catch bloc ...");
             em.persist(o);
             System.out.println("hello i'm after persistence ...");
         } catch (ConstraintViolationException e) {
@@ -69,17 +45,16 @@ public class DAO<T> implements CrudService{
 
     public Aigle findAigle(int id_aigle){return em.find(Aigle.class,id_aigle);}
 
-//    @Override
-//<<<<<<< HEAD
-//    public void delete(Class type, Object id) {
-//        Object ref = em.getReference(type, id);
-//        em.remove(ref);
-//    }
-//
-//    @Override
-//    public List findWithNamedQuery(String queryName) {
-//        return this.em.createNamedQuery(queryName).getResultList();
-//=======
+    public Aigle findAigleByName(String name){
+        Aigle aigleFound=null;
+        try {
+            Query query = em.createQuery("SELECT aigle FROM Aigle aigle WHERE aigle.nom LIKE '" + name + "'");
+            aigleFound= (Aigle) query.getSingleResult();
+            //System.out.println("-----------//////////////"+aigleFound);
+        }catch(Exception e){e.getStackTrace();}
+        return aigleFound;
+    }
+
     public List findWithNamedQuery(String queryName) {
         return this.em.createNamedQuery(queryName).getResultList();
     }
@@ -98,6 +73,5 @@ public class DAO<T> implements CrudService{
         if(aigleFounded==null)
             return true;
         return false;
-//>>>>>>> development
     }
 }

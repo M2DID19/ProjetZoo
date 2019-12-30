@@ -15,42 +15,42 @@
         <p:growl id="bloc" showDetail="true" skipDetailIfEqualsSummary="true" />
         <h:panelGrid columns="4" cellpadding="5">
 
+            <p:row>
 
-            <h:outputLabel for="name" value="Name:" style="font-weight:bold" />
-            <p:inputText id="name" value="#{ControleurAigle.nom}" required="true" requiredMessage="Le nom est obligatoire"/>
+                <h:outputLabel for="nomAigle" value="Nom : " style="font-weight:bold" />
 
-<!--            <h:outputLabel for="couleur" value="Couleur:" style="font-weight:bold" />-->
-<!--            <p:inputText id="couleur" value="#{ControleurAigle.couleur}" required="true" requiredMessage="veuillez choisir une couleur"/>-->
+                <p:inputText id="nomAigle" value="#{ControleurAigle.nom}" required="true" requiredMessage="Le nom est obligatoire"/>
+                #{ControleurAigle.nom}
 
-            <h:outputLabel for="vitesse" value="Vitesse:" style="font-weight:bold" />
-            <p:inputText id="vitesse" value="#{ControleurAigle.vitesse}" required="false"/>
+            </p:row>
+            <p:row>
 
+                <h:outputLabel for="vitesseAigle" value="Vitesse:" style="font-weight:bold" />
 
-            <p:outputLabel for="couleur" value="Couleur: " />
-            <h:selectOneMenu id="couleur" value="#{ControleurAigle.couleur}" style="font-weight:bold">
-                <f:selectItem itemLabel="Select Couleur" itemValue="" noSelectionOption="true" />
-                <f:selectItems value="#{ControleurAigle.couleurs}" />
-            </h:selectOneMenu>
+                <p:inputText id="vitesseAigle" value="#{ControleurAigle.vitesse}" required="true"/>
+                #{ControleurAigle.vitesse}
+            </p:row>
+            <p:row>
+                <p:outputLabel for="couleur" value="Couleur: " />
+                <h:selectOneMenu id="couleur" value="#{ControleurAigle.couleur}" style="font-weight:bold">
+                    <f:selectItem itemLabel="Select Couleur" itemValue="" noSelectionOption="true" />
+                    <f:selectItems value="#{ControleurAigle.couleurs}" />
+                </h:selectOneMenu>
+                #{ControleurAigle.couleur}
 
+            </p:row>
+            <p:row>
+                <h:outputLabel for="idZoo" value="Zoo:" style="font-weight:bold" />
+                <p:inputText id="idZoo" value="#{ControleurAigle.id_zoo}" required="true"/>
+            </p:row>
 
-<!--            <h:outputLabel for="zoo" value="Zoo:" style="font-weight:bold" />-->
-<!--            <p:inputText id="zoo" value="#{ControleurAigle.zoo}" required="false"/>-->
-
-<!--            <h:outputLabel for="faune" value="Faune:" style="font-weight:bold" />-->
-<!--            <p:inputText id="faune" value="#{ControleurAigle.faune}" required="true" requiredMessage="veuillez selectionner la faune" placeholder="1"/>-->
-
-
-            <h:commandButton value="Submit" action="#{ControleurAigle.ajouterAigle}" />
-
-
-<!--            <p:dialog header="Values" modal="true" showEffect="bounce" widgetVar="dlg" resizable="false">-->
-<!--                <p:panelGrid columns="2" id="display" columnClasses="label,value">-->
-
-<!--                    <h:outputText value="CouleurTest:" />-->
-<!--                    <h:outputText value="#{ControleurAigle.couleur}" />-->
-<!--                </p:panelGrid>-->
-<!--            </p:dialog>-->
-
+            <p:row>
+                <h:commandButton value="Ajouter" action="#{ControleurAigle.ajouterAigle}" />
+            </p:row>
+            <p:row>
+                <p:linkButton outcome="choix.xhtml" value="Retourner à la liste des choix" style="margin-right:20px;margin-top:20px;">
+                </p:linkButton>
+            </p:row>
 
         </h:panelGrid>
     </h:form>

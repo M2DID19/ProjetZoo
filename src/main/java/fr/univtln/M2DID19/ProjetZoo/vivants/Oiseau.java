@@ -12,13 +12,14 @@ import javax.validation.Valid;
 @Getter
 @Setter
 @MappedSuperclass
-public abstract class Oiseau extends Animal implements Carnivore{
+public abstract class Oiseau extends Animal{
 
     public enum couleur{
         ROUGE,
         JAUNE,
         NOIR,
         GRIS,
+        MARON
 
     }
     @Enumerated(EnumType.STRING)
@@ -32,9 +33,4 @@ public abstract class Oiseau extends Animal implements Carnivore{
     }
 
 
-
-    @Override
-    public void manger(@Valid Animal animal) {
-
-    }
 }

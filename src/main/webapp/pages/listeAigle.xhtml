@@ -1,30 +1,54 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui">
+      xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
 <h:head>
     <title>Aigles</title>
 </h:head>
 <h:body>
     <h1>Voici la liste des aigles existant</h1>
+    <h:form>
+    <p:growl id="bloc" showDetail="true" skipDetailIfEqualsSummary="true" />
+    <h:panelGrid columns="4" cellpadding="5">
 
-    <p:dataTable var="tableAigles" value="#{ControleurAigle.liste}">
+    <p:dataTable id="Taigles" var="aigle" value="#{ControleurAigle.liste}" selection="#{ControleurAigle.selectedAigle}" rowKey="#{aigle.id}" selectionMode="single" editable="true" paginator="true">
         <p:column headerText="Id">
-            <h:outputText value="#{tableAigles.id}" />
+            <h:outputText value="#{aigle.id}" />
         </p:column>
 
         <p:column headerText="Nom">
-            <h:outputText value="#{tableAigles.nom}" />
+            <h:outputText value="#{aigle.nom}" />
         </p:column>
 
         <p:column headerText="Couleur">
-            <h:outputText value="#{tableAigles.couleur}" />
+            <h:outputText value="#{aigle.couleur}" />
         </p:column>
 
         <p:column headerText="Vitesse">
-            <h:outputText value="#{tableAigles.vitesse}" />
+            <h:outputText value="#{aigle.vitesse}" />
+        </p:column>
+
+        <p:column>
+<!--            <h:commandLink value="Delete"-->
+<!--                           action="#{order.deleteAction(o)}"/>-->
+        <p:commandButton value="supprimer" action="#{ControleurAigle.suppAigle(aigle)}" update="Taigles" >
+            #{ControleurAigle.selectedAigle.nom}
+<!--                <f:setPropertyActionListener value="#{aigle}" target="#{ControleurAigle.selectedAigle}" />-->
+            <p:confirm header="Confirmation" message="Voulez-vous supprimer l'aigle ?" icon="ui-icon-alert" />
+        </p:commandButton>
         </p:column>
     </p:dataTable>
+    <p:confirmDialog global="true" showEffect="fade" hideEffect="explode">
+        <p:commandButton value="Yes" type="button" styleClass="ui-confirmdialog-yes" icon="ui-icon-check" />
+        <p:commandButton value="No" type="button" styleClass="ui-confirmdialog-no" icon="ui-icon-close" />
+    </p:confirmDialog>
 
+    <p:row>
+        <p:linkButton outcome="choix.xhtml" value="Retourner à la liste des choix" style="margin-right:20px;margin-top:20px;">
+        </p:linkButton>
+
+    </p:row>
+    </h:panelGrid>
+    </h:form>
 </h:body>
 </html>

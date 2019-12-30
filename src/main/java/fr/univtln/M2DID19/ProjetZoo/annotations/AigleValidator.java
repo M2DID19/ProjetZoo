@@ -12,7 +12,8 @@ public class AigleValidator implements ConstraintValidator<Nom, String> {
     @Override
     public boolean isValid(String nom, ConstraintValidatorContext constraintValidatorContext) {
         if(nom.length()<4 || nom.length()>20)
-            return false;
+        {System.out.println("wahya sinia ....");
+            return false;}
         for (char c : nom.toCharArray()) {
             if (!Character.isLetter(c))
                 return false;

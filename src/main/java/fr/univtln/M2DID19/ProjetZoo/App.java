@@ -1,7 +1,11 @@
 package fr.univtln.M2DID19.ProjetZoo;
 
+import fr.univtln.M2DID19.ProjetZoo.DAO.DAO;
+import fr.univtln.M2DID19.ProjetZoo.ejb.GestionAigle;
 import fr.univtln.M2DID19.ProjetZoo.exceptions.NomNonValideException;
 import fr.univtln.M2DID19.ProjetZoo.exceptions.VitesseNonValideException;
+import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
+import fr.univtln.M2DID19.ProjetZoo.vivants.Oiseau;
 import org.apache.log4j.PatternLayout;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -163,14 +167,21 @@ public class App{
 //        DAO dao=new DAO();
 //        System.out.println(dao.nomValide(s));
 //        GestionAigle gs=new GestionAigle();
-//        Oiseau.couleur couleur= Oiseau.couleur.GRIS;
+//        gs.findAigleByName("aigle");
+//        DAO dao =new DAO();
+
+//        Oiseau.couleur couleur= Oiseau.couleur.NOIR;
 //        Aigle aigle=null;
 //        try {
-//            aigle = new Aigle("hello ", 318, couleur, 1);
+//            aigle = new Aigle("eglyaigle", 150, couleur);
+//            gs.createAigle(aigle);
+//
 //        }
 //        catch(Exception e){
 //            e.getStackTrace();
 //        }
+
+
     }
 
 }

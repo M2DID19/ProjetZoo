@@ -16,16 +16,10 @@ import javax.persistence.MappedSuperclass;
 public abstract class Animal implements Comparable<Animal>{
 
     @Id
-   @GeneratedValue
+    @GeneratedValue
     private int id;
     @Column(name="nom")
     private String nom;
-//<<<<<<< HEAD
-//
-//    @JsonbTransient
-//    private Zoo zoo;
-//
-//=======
     @JsonbTransient
     private int id_zoo;
     @JsonbTransient
@@ -43,7 +37,7 @@ public abstract class Animal implements Comparable<Animal>{
             return 1;
         return 0;
     }
-    @Nom
+   // @Nom
     public String getNom() {
         return nom;
     }

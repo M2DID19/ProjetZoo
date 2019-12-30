@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  Created by IntelliJ IDEA.
+  User: enigma
+  Date: 29/12/19
+  Time: 15:32
+-->
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+
+<h:head>
+    <title>Cherche un Aigle</title>
+</h:head>
+
+<h:body>
+    <h:form>
+        <p:growl id="bloc" showDetail="true" skipDetailIfEqualsSummary="true" />
+        <h:panelGrid columns="4" cellpadding="5">
+    <p:row>
+        <p:outputLabel value="Nom de l'Aigle : "></p:outputLabel>
+    </p:row>
+
+    <p:row>
+        <h:inputText value="#{ControleurAigle.nameSearch}"></h:inputText>
+    </p:row>
+
+        <br/>
+         id     :     #{ControleurAigle.aigleFound.id} <br/>
+         nom    :     #{ControleurAigle.aigleFound.nom}<br/>
+         couleur:     #{ControleurAigle.aigleFound.couleur}<br/>
+         vitesse:     #{ControleurAigle.aigleFound.vitesse}<br/><br/><br/><br/>
+            <p:row>
+                <h:commandButton value="Chercher" action="#{ControleurAigle.findAigleParNom()}"/>
+                <p:row>
+
+        <p:linkButton outcome="choix.xhtml" value="Retourner à la liste des choix" style="margin-right:20px;margin-top:20px;">
+        </p:linkButton>
+        </p:row>
+    </p:row>
+        </h:panelGrid>
+    </h:form>
+</h:body>
+
+</html>

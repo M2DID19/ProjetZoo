@@ -15,7 +15,6 @@ import java.util.Set;
 
 @Entity
 @Table(name="Aigle")
-//@Builder
 @Getter
 @Setter
 @NamedQuery(name = "findAllAigle", query = "SELECT a from Aigle a")
@@ -28,13 +27,6 @@ public class Aigle extends Oiseau implements Serializable {
     @ManyToOne(cascade = CascadeType.ALL)
     @JsonbTransient
     private Faune faune;
-//<<<<<<< HEAD
-//
-//    @Override
-//    public String toString() {
-//        return super.toString()+"je suis un aigle";
-//    }
-//=======
 
     @Override
     public String toString() {
@@ -42,6 +34,25 @@ public class Aigle extends Oiseau implements Serializable {
     }
 
     public Aigle() {
+    }
+
+    public Aigle(String nom, int vitesse, Oiseau.couleur couleur) throws NomNonValideException,VitesseNonValideException{
+        if(vitesse<0 || vitesse>320)
+            throw new VitesseNonValideException(vitesse);
+        this.setNom(nom);
+        this.setVitesse(vitesse);
+        this.setCouleur(couleur);
+
+        ValidatorFactory factory= Validation.buildDefaultValidatorFactory();System.out.println("je suis la lalalalalalaal");
+        Validator validator=factory.getValidator();
+        Set<ConstraintViolation<Aigle>> constraintViolations=validator.validate(this);
+
+        if (constraintViolations.size() > 0 ) {
+            System.out.println("impossible de valider les données de l'aigle  ...");
+            throw new NomNonValideException(nom);
+        } else {
+            System.out.println("Les données de l'aigle sont valides ... ");
+        }
     }
 
     public Aigle(String nom,int vitesse, Oiseau.couleur couleur,int id_zoo) throws NomNonValideException,VitesseNonValideException{
@@ -52,7 +63,7 @@ public class Aigle extends Oiseau implements Serializable {
     this.setVitesse(vitesse);
     this.setCouleur(couleur);
 
-    ValidatorFactory factory=Validation.buildDefaultValidatorFactory();
+    ValidatorFactory factory= Validation.buildDefaultValidatorFactory();System.out.println("je suis la lalalalalalaal");
     Validator validator=factory.getValidator();
     Set<ConstraintViolation<Aigle>> constraintViolations=validator.validate(this);
 
@@ -63,4 +74,5 @@ public class Aigle extends Oiseau implements Serializable {
             System.out.println("Les données de l'aigle sont valides ... ");
         }
     }
+
 }

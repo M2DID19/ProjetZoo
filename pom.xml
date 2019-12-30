@@ -157,11 +157,11 @@
         <!--<version>42.2.5</version>-->
         <!--</dependency>-->
 
-        <!--<dependency>-->
-        <!--<groupId>org.eclipse.persistence</groupId>-->
-        <!--<artifactId>org.eclipse.persistence.jpa</artifactId>-->
-        <!--<version>2.5.0</version>-->
-        <!--</dependency>-->
+        <dependency>
+        <groupId>org.eclipse.persistence</groupId>
+        <artifactId>org.eclipse.persistence.jpa</artifactId>
+        <version>2.5.0</version>
+        </dependency>
 
         <!--<dependency>-->
         <!--<groupId>org.hibernate.javax.persistence</groupId>-->
@@ -201,6 +201,12 @@
             <artifactId>junit-vintage-engine</artifactId>
             <scope>test</scope>
         </dependency>
+        <!--hibernate validator : obligatoire pour le validator factory (validator)-->
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator</artifactId>
+            <version>4.1.0.Final</version>
+        </dependency>
 
         <dependency>
             <groupId>javax</groupId>
@@ -208,6 +214,7 @@
             <version>8.0</version>
             <scope>provided</scope>
         </dependency>
+
 
 
     </dependencies>
