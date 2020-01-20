@@ -4,7 +4,6 @@
              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
              http://xmlns.jcp.org/xml/ns/persistence/persistence_2_1.xsd"
              version="2.1">
-    <!--<persistence-unit name="authors" transaction-type="RESOURCE_LOCAL">-->
     <persistence-unit name="authors" transaction-type="JTA">
         <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <jta-data-source>jdbc/postgres-pool</jta-data-source>
@@ -15,12 +14,6 @@
         <class>fr.univtln.M2DID19.ProjetZoo.vivants.Faune</class>
         <class>fr.univtln.M2DID19.ProjetZoo.structures.Zoo</class>
         <properties>
-            <!-- Les paramètres de connexions -->
-            <!--<property name="javax.persistence.target-database" value="PostgreSQL"/>-->
-            <!--<property name="javax.persistence.jdbc.driver" value="org.postgresql.Driver"/>-->
-            <!--<property name="javax.persistence.jdbc.url" value="jdbc:postgresql://192.168.99.100:5432/glassfish"/>-->
-            <!--<property name="javax.persistence.jdbc.user" value="glassfish"/>-->
-            <!--<property name="javax.persistence.jdbc.password" value="glassfishdbpassword"/>-->
 
             <!-- Les options de générations des tables -->
             <property name="javax.persistence.schema-generation.database.action" value="create"/>
@@ -28,7 +21,6 @@
             <property name="javax.persistence.schema-generation.scripts.create-target" value="sampleCreate.ddl"/>
             <property name="javax.persistence.schema-generation.scripts.drop-target" value="sampleDrop.ddl"/>
 
-            <!--property name="javax.persistence.sql-load-script-source" value="insert.sql"/-->
 
         </properties>
         <!--//classes..-->

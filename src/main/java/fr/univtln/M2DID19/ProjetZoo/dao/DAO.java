@@ -1,4 +1,4 @@
-package fr.univtln.M2DID19.ProjetZoo.DAO;
+package fr.univtln.M2DID19.ProjetZoo.dao;
 
 import fr.univtln.M2DID19.ProjetZoo.vivants.Aigle;
 import javax.ejb.TransactionManagement;
@@ -10,18 +10,14 @@ import java.util.List;
 @TransactionManagement(TransactionManagementType.CONTAINER)
 public class DAO<T> implements CrudService{
     public DAO() {
-        System.out.println("hello i'm in DAO constructor ...");
     }
 
     @PersistenceContext (unitName = "authors")
     EntityManager em;
     @Override
     public Object create(Object o) {
-        System.out.println("Hello i'm in create ...");
         try {
-            System.out.println("hello i'm in create's try catch bloc ...");
             em.persist(o);
-            System.out.println("hello i'm after persistence ...");
         } catch (ConstraintViolationException e) {
             System.out.println(e);
         }
@@ -43,15 +39,14 @@ public class DAO<T> implements CrudService{
         em.remove(o);
     }
 
-    public Aigle findAigle(int id_aigle){return em.find(Aigle.class,id_aigle);}
+    public Aigle findAigle(int id_aigle) {return em.find(Aigle.class,id_aigle);}
 
     public Aigle findAigleByName(String name){
         Aigle aigleFound=null;
         try {
             Query query = em.createQuery("SELECT aigle FROM Aigle aigle WHERE aigle.nom LIKE '" + name + "'");
             aigleFound= (Aigle) query.getSingleResult();
-            //System.out.println("-----------//////////////"+aigleFound);
-        }catch(Exception e){e.getStackTrace();}
+        } catch(Exception e){e.getStackTrace();}
         return aigleFound;
     }
 

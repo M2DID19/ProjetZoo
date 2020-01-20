@@ -11,7 +11,6 @@ import javax.validation.constraints.Size;
 @Entity
 @Getter
 @Setter
-//@Builder
 public class Plante {
 
     @Id

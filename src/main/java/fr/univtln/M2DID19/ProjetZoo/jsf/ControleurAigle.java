@@ -1,6 +1,6 @@
-package fr.univtln.M2DID19.ProjetZoo.Jsf;
+package fr.univtln.M2DID19.ProjetZoo.jsf;
 
-import fr.univtln.M2DID19.ProjetZoo.DAO.DAO;
+import fr.univtln.M2DID19.ProjetZoo.dao.DAO;
 import fr.univtln.M2DID19.ProjetZoo.ejb.GestionAigle;
 import fr.univtln.M2DID19.ProjetZoo.exceptions.NomNonValideException;
 import fr.univtln.M2DID19.ProjetZoo.exceptions.VitesseNonValideException;
@@ -112,33 +112,18 @@ public class ControleurAigle implements Serializable {
 
     public void ajouterAigle() throws VitesseNonValideException, NomNonValideException{
         aigle=new Aigle(nom,vitesse, couleur,id_zoo);
-        System.out.println(aigle);
         gestionAigle.createAigle(aigle);
     }
-//    public void supprimerAigle() {
-//        System.out.println("------------------------------");
-//        System.out.println(selectedAigle);
-////        listeAigle.remove(selectedAigle);
-////        gestionAigle.deleteAigle(selectedAigle.getId());
-//
-//    }
-    public void suppAigle(Aigle aigleuh){
-        System.out.println("---------------------------------------------------------------------------------------------");
-        listeAigle.remove(aigleuh);
-        gestionAigle.deleteAigle(aigleuh.getId());
+
+
+    public void suppAigle(Aigle aigle){
+        listeAigle.remove(aigle);
+        gestionAigle.deleteAigle(aigle.getId());
     }
-//    public void findAigleByName(){
-//        System.out.println("---------------------");
-//        for(Aigle ii:listeAigle){
-//            if(ii.getNom()==nameSearch)
-//                aigleFound= ii;
-//        }
-//        System.out.println(aigleFound);
-//    }
+
+
     public void findAigleParNom(){
-        System.out.println(nameSearch);
-       aigleFound= gestionAigle.findAigleByName(nameSearch);
-        System.out.println(aigleFound);
+        aigleFound= gestionAigle.findAigleByName(nameSearch);
     }
 
 }

@@ -37,7 +37,8 @@ public abstract class Animal implements Comparable<Animal>{
             return 1;
         return 0;
     }
-   // @Nom
+
+
     public String getNom() {
         return nom;
     }

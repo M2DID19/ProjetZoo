@@ -43,7 +43,7 @@ public class Aigle extends Oiseau implements Serializable {
         this.setVitesse(vitesse);
         this.setCouleur(couleur);
 
-        ValidatorFactory factory= Validation.buildDefaultValidatorFactory();System.out.println("je suis la lalalalalalaal");
+        ValidatorFactory factory= Validation.buildDefaultValidatorFactory();
         Validator validator=factory.getValidator();
         Set<ConstraintViolation<Aigle>> constraintViolations=validator.validate(this);
 
@@ -63,7 +63,7 @@ public class Aigle extends Oiseau implements Serializable {
     this.setVitesse(vitesse);
     this.setCouleur(couleur);
 
-    ValidatorFactory factory= Validation.buildDefaultValidatorFactory();System.out.println("je suis la lalalalalalaal");
+    ValidatorFactory factory= Validation.buildDefaultValidatorFactory();
     Validator validator=factory.getValidator();
     Set<ConstraintViolation<Aigle>> constraintViolations=validator.validate(this);
 

@@ -8,10 +8,10 @@ import java.util.List;
 @Local
 public interface GestionAigleLocal {
 
-    public String communiquer();
     public List<Aigle> findAllAigle();
-//<<<<<<< HEAD
-//    public void postAigle(Aigle aigle);
-//=======
-//>>>>>>> development
+    public void createAigle(Aigle aigle);
+    public Aigle findAigle(int idAigle);
+    public void updateAigle(Aigle aigle);
+    public void deleteAigle(int idAigle);
+    public  Aigle findAigleByName(String name);
 }

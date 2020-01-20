@@ -32,7 +32,6 @@ public class Zoo {
     }
 
     public void afficheToi(){
-        System.out.println("Affichage de "+this.getNom()+ "....");
         Iterator iteratorAnimaux=this.zooL.iterator();
         while(iteratorAnimaux.hasNext()){
             System.out.println(iteratorAnimaux.next().toString());

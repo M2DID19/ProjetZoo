@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
       xmlns:h="http://java.sun.com/jsf/html"
-      xmlns:p="http://primefaces.org/ui" xmlns:f="http://xmlns.jcp.org/jsf/core">
+      xmlns:p="http://primefaces.org/ui">
 <h:head>
     <title>Aigles</title>
 </h:head>
@@ -29,11 +29,8 @@
         </p:column>
 
         <p:column>
-<!--            <h:commandLink value="Delete"-->
-<!--                           action="#{order.deleteAction(o)}"/>-->
         <p:commandButton value="supprimer" action="#{ControleurAigle.suppAigle(aigle)}" update="Taigles" >
             #{ControleurAigle.selectedAigle.nom}
-<!--                <f:setPropertyActionListener value="#{aigle}" target="#{ControleurAigle.selectedAigle}" />-->
             <p:confirm header="Confirmation" message="Voulez-vous supprimer l'aigle ?" icon="ui-icon-alert" />
         </p:commandButton>
         </p:column>

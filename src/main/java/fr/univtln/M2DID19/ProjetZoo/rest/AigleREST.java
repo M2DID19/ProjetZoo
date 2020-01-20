@@ -1,4 +1,4 @@
-package fr.univtln.M2DID19.ProjetZoo.REST;
+package fr.univtln.M2DID19.ProjetZoo.rest;
 
 import fr.univtln.M2DID19.ProjetZoo.ejb.GestionAigle;
 import fr.univtln.M2DID19.ProjetZoo.exceptions.NexistePasException;
@@ -18,8 +18,6 @@ import java.util.List;
 public class AigleREST {
 
     @Inject
-    //DAO<Aigle> dao;
-//    @Inject GestionAigle gestionAigle;
     @EJB GestionAigle gestionAigle;
 
 
@@ -28,11 +26,10 @@ public class AigleREST {
     @Path("/createAigle")
     @Consumes(MediaType.APPLICATION_JSON)
     public void createAigle(@QueryParam("nom") String nom, @QueryParam("couleur") Oiseau.couleur couleur,@QueryParam("vitesse") int vitesse,@QueryParam("zoo_id") int zoo_id) throws NomNonValideException, VitesseNonValideException, NexistePasException {
-        Aigle aigle=null;
+        Aigle aigle;
         try {
             aigle=new Aigle(nom,vitesse,couleur,zoo_id);
             gestionAigle.createAigle(aigle);
-            System.out.println(nom + "     " + couleur + "     " + vitesse + "     " + aigle.getId_zoo()+ "     "+aigle.getId());
         }catch(NomNonValideException | VitesseNonValideException e){
             e.getMessage();
         }
@@ -56,7 +53,7 @@ public class AigleREST {
     @Path("/updateAigle")
     @Consumes(MediaType.APPLICATION_JSON)
     public void updateAigle(@QueryParam("id") int id,@QueryParam("nom") String nom, @QueryParam("couleur") Oiseau.couleur couleur,@QueryParam("vitesse") int vitesse) throws NexistePasException{
-        Aigle aigle=null;
+        Aigle aigle;
         try{
             aigle=gestionAigle.findAigle(id);
             if(aigle==null)
@@ -64,9 +61,7 @@ public class AigleREST {
             aigle.setCouleur(couleur);
             aigle.setVitesse(vitesse);
             aigle.setNom(nom);
-            System.out.println(aigle.getId()+"  "+aigle.getNom()+"  "+aigle.getCouleur());
             gestionAigle.updateAigle(aigle);
-            System.out.println("After gestionAigle's call ...");
         }
         catch(NexistePasException e){
             e.getStackTrace();
@@ -76,7 +71,7 @@ public class AigleREST {
     @DELETE
     @Path("/removeAigle")
     @Consumes(MediaType.APPLICATION_JSON)
-    public void deleteAigle(@QueryParam("id") int idAigle){
+    public void deleteAigle(@QueryParam("id") int idAigle) {    
         gestionAigle.deleteAigle(idAigle);}
 
 }

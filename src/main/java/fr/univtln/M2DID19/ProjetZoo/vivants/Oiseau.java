@@ -7,7 +7,6 @@ import javax.persistence.Column;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.MappedSuperclass;
-import javax.validation.Valid;
 
 @Getter
 @Setter
@@ -24,7 +23,6 @@ public abstract class Oiseau extends Animal{
     }
     @Enumerated(EnumType.STRING)
     @Column(name="couleur")
-//    @NotNull
     private couleur couleur;
 
     @Override
