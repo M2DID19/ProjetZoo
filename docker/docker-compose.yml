@@ -5,6 +5,11 @@ services:
         build:
           context: ..
           dockerfile: docker/Dockerfile
+          args:
+            - http_proxy=$http_proxy
+            - https_proxy=$https_proxy
+            - HTTP_PROXY=$HTTP_PROXY
+            - HTTPS_PROXY=$HTTPS_PROXY
         ports:
             - "8080:8080"
             - "4848:4848"
