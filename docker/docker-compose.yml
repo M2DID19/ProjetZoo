@@ -32,6 +32,61 @@ services:
             PGDATA: /var/lib/postgresql/data/pgdata
         volumes:
             - data-pgdata:/var/lib/postgresql/data/pgdata
+
+    db1:
+      image: couchdb:2.3.0
+      ports:
+        - "5984:5984"
+      environment:
+        NODENAME: couchdb-0.docker.com
+        COUCHDB_PASSWORD: admin
+        COUCHDB_USER: admin
+      networks:
+        network:
+          aliases:
+            - couchdb-0.docker.com
+      volumes:
+        - data-couchdb1:/opt/couchdb/data
+
+    db2:
+      image: couchdb:2.3.0
+      ports:
+        - "15984:5984"
+      environment:
+        NODENAME: couchdb-2.docker.com
+        COUCHDB_PASSWORD: admin
+        COUCHDB_USER: admin
+      networks:
+        network:
+          aliases:
+            - couchdb-2.docker.com
+      volumes:
+        - data-couchdb2:/opt/couchdb/data
+
+
+    db3:
+      image: couchdb:2.3.0
+      ports:
+        - "25984:5984"
+      environment:
+        NODENAME: couchdb-3.docker.com
+        COUCHDB_PASSWORD: admin
+        COUCHDB_USER: admin
+      networks:
+        network:
+          aliases:
+            - couchdb-3.docker.com
+      volumes:
+        - data-couchdb3:/opt/couchdb/data
+
+
+
+networks:
+  network:
+
 volumes:
   data-pgdata:
   data-payara:
+  data-couchdb1:
+  data-couchdb2:
+  data-couchdb3:

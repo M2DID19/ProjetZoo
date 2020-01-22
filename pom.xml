@@ -125,6 +125,12 @@
     <dependencies>
 
         <dependency>
+            <groupId>org.ektorp</groupId>
+            <artifactId>org.ektorp</artifactId>
+            <version>1.5.0</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.sun.faces</groupId>
             <artifactId>jsf-api</artifactId>
             <version>2.2.4</version>
@@ -153,6 +159,8 @@
         <dependency>
             <groupId>org.slf4j</groupId>
             <artifactId>slf4j-log4j12</artifactId>
+            <!-- version pour fonctionner avec ektorp 1.5.0-->
+            <version>1.6.4</version>
         </dependency>
 
         <dependency>

@@ -1,21 +1,25 @@
 package fr.univtln.M2DID19.ProjetZoo.vivants;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.NamedQuery;
 import javax.validation.constraints.Size;
 
-@Entity
 @Getter
 @Setter
+@NamedQuery(name = "findAllPlante", query = "SELECT p from Plante p")
 public class Plante {
 
-    @Id
-    private int id;
+    @JsonProperty("_id")
+    private String id;
 
-    @Size(min=0, max=50)
+    @JsonProperty("_rev")
+    private String rev;
+
     private String name;
 }
