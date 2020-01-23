@@ -12,14 +12,12 @@ import org.ektorp.impl.StdCouchDbInstance;
 @Setter
 @Getter
 public class Connexion {
-    protected String host; // = "192.168.99.100";
-    protected int port; // = 5984;
-    protected String username; // = "admin";
-    protected String password; // = "admin";
-    protected String databaseName; // = "test22";
-
-
-
+    protected String host;
+    protected int port;
+    protected String username;
+    protected String password;
+    protected String databaseName;
+    
     public CouchDbConnector connexion() {
 
         System.out.println("debut connexion");

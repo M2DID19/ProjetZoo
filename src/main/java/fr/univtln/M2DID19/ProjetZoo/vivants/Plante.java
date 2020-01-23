@@ -22,4 +22,17 @@ public class Plante {
     private String rev;
 
     private String name;
+    private String famille;
+    private String nbFeuilles;
+
+    @Override
+    public String toString() {
+        return "Plante{" +
+                "id='" + id + '\'' +
+                ", rev='" + rev + '\'' +
+                ", name='" + name + '\'' +
+                ", famille='" + famille + '\'' +
+                ", nbFeuilles='" + nbFeuilles + '\'' +
+                '}';
+    }
 }
