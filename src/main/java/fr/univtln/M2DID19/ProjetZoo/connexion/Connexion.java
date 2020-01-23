@@ -17,7 +17,7 @@ public class Connexion {
     protected String username;
     protected String password;
     protected String databaseName;
-    
+
     public CouchDbConnector connexion() {
 
         System.out.println("debut connexion");
@@ -36,7 +36,9 @@ public class Connexion {
 
             CouchDbInstance dbInstance = new StdCouchDbInstance(httpClient);
 
-            connector = dbInstance.createConnector(databaseName, true);
+            connector = dbInstance.createConnector(databaseName, false);
+//            connector = dbInstance.createConnector(databaseName, true);
+
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -44,6 +46,21 @@ public class Connexion {
         }
         return connector;
     }
+
+
+
+    public void closeConnexion(CouchDbConnector connector) {
+        try {
+            connector.getConnection().shutdown();
+            System.out.println("Connection close succesfully");
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+
+
+    }
+
+
 
 
     @Override

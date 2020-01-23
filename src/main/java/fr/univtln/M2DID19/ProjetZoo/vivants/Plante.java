@@ -1,14 +1,10 @@
 package fr.univtln.M2DID19.ProjetZoo.vivants;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
 import javax.persistence.NamedQuery;
-import javax.validation.constraints.Size;
 
 @Getter
 @Setter
@@ -23,7 +19,7 @@ public class Plante {
 
     private String name;
     private String famille;
-    private String nbFeuilles;
+    private int nbFeuilles;
 
     @Override
     public String toString() {
