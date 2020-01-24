@@ -41,4 +41,34 @@ public class GestionPlante {
         }
         return id;
     }
+
+    public Plante getById(String host, int port, String dbName, String id) {
+        Plante plante = null;
+        try {
+            plante = daoNoSQL.getById(host, port, dbName, id);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return plante;
+    }
+
+    public Plante updatePlante(String host, int port, String dbName, String id, String rev, String name, String famille, int nbFeuilles) {
+        Plante planteRetour = null;
+        try {
+            Plante plante = new Plante();
+            plante.setId(id);
+            plante.setRev(rev);
+            plante.setName(name);
+            plante.setFamille(famille);
+            plante.setNbFeuilles(nbFeuilles);
+            try {
+                planteRetour = daoNoSQL.updatePlante(host, port, dbName, plante);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return planteRetour;
+    }
 }

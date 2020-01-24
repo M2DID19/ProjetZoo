@@ -1,11 +1,7 @@
 package fr.univtln.M2DID19.ProjetZoo.rest;
 
-
-import fr.univtln.M2DID19.ProjetZoo.connexion.Connexion;
-import fr.univtln.M2DID19.ProjetZoo.dao.DAONoSQL;
 import fr.univtln.M2DID19.ProjetZoo.ejb.GestionPlante;
 import fr.univtln.M2DID19.ProjetZoo.vivants.Plante;
-import org.ektorp.CouchDbConnector;
 
 import javax.ejb.EJB;
 import javax.inject.Inject;
@@ -16,7 +12,6 @@ import java.util.List;
 @Produces({"application/json"})
 public class PlanteREST {
 
-//    DAONoSQL daoNoSQL = new DAONoSQL();
     @Inject
     @EJB GestionPlante gestionPlante;
 
@@ -58,5 +53,33 @@ public class PlanteREST {
             System.out.println(e.getMessage());
         }
         return id + "\n";
+    }
+
+    @GET
+    @Path("/planteId")
+    public Plante getById(@QueryParam("host") String host, @QueryParam("port") int port,
+                          @QueryParam("dbName") String dbName, @QueryParam("id") String id) {
+        Plante plante = null;
+        try {
+            plante = gestionPlante.getById(host, port, dbName, id);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return plante;
+    }
+
+    @PUT
+    @Path("/updatePlante")
+    public Plante updatePlante(@QueryParam("host") String host, @QueryParam("port") int port,
+                               @QueryParam("dbName") String dbName, @QueryParam("id") String id,
+                               @QueryParam("rev") String rev, @QueryParam("name") String name,
+                               @QueryParam("famille") String famille, @QueryParam("nbFeuilles") int nbFeuilles) {
+        Plante plante = null;
+        try {
+            plante = gestionPlante.updatePlante(host, port, dbName, id, rev, name, famille, nbFeuilles);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return plante;
     }
 }

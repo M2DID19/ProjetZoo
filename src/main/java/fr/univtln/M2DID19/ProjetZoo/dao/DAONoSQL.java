@@ -81,4 +81,63 @@ public class DAONoSQL {
         }
         return id;
     }
+
+    public Plante getById(String host, int port, String dbName, String id) {
+        Plante plante = null;
+        try {
+            connexion.setHost(host);
+            connexion.setPort(port);
+            connexion.setDatabaseName(dbName);
+
+            CouchDbConnector connector = connexion.connexion();
+            try {
+                plante = connector.get(Plante.class, id);
+                connexion.closeConnexion(connector);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                connexion.closeConnexion(connector);
+            }
+            connexion.closeConnexion(connector);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return plante;
+    }
+
+    public Plante updatePlante(String host, int port, String dbName, Plante plante) {
+        Plante planteRetour = null;
+        try {
+            connexion.setHost(host);
+            connexion.setPort(port);
+            connexion.setDatabaseName(dbName);
+
+            CouchDbConnector connector = connexion.connexion();
+            try {
+                if (plante.getId() != null && connector.contains(plante.getId())) {
+                    connector.update(plante);
+                    planteRetour = plante;
+                    connexion.closeConnexion(connector);
+                }
+                else {
+                    try {
+                        connector.create(plante);
+                        planteRetour = plante;
+                        System.out.println("La plante n'existait pas, elle a été créée");
+                        connexion.closeConnexion(connector);
+                    } catch(Exception e) {
+                        System.out.println(e.getMessage());
+                        connexion.closeConnexion(connector);
+                    }
+                    connexion.closeConnexion(connector);
+                }
+            } catch(Exception e) {
+                System.out.println(e.getMessage());
+                connexion.closeConnexion(connector);
+            }
+            connexion.closeConnexion(connector);
+        } catch(Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return planteRetour;
+    }
 }
