@@ -71,4 +71,14 @@ public class GestionPlante {
         }
         return planteRetour;
     }
+
+    public String deletePlante(String host, int port, String dbName, String id, String rev) {
+        String idRetour = null;
+        try {
+            idRetour = daoNoSQL.deletePlante(host, port, dbName, id, rev);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return idRetour;
+    }
 }

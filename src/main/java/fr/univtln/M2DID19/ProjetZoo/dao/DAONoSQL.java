@@ -2,6 +2,7 @@ package fr.univtln.M2DID19.ProjetZoo.dao;
 
 import fr.univtln.M2DID19.ProjetZoo.connexion.Connexion;
 import fr.univtln.M2DID19.ProjetZoo.vivants.Plante;
+import org.eclipse.persistence.internal.jpa.parsing.EscapeNode;
 import org.ektorp.CouchDbConnector;
 import org.ektorp.ViewQuery;
 
@@ -91,8 +92,14 @@ public class DAONoSQL {
 
             CouchDbConnector connector = connexion.connexion();
             try {
-                plante = connector.get(Plante.class, id);
-                connexion.closeConnexion(connector);
+                if (connector.contains(id)) {
+                    plante = connector.get(Plante.class, id);
+                    connexion.closeConnexion(connector);
+                }
+                else {
+                    System.out.println("la base de données ne contient pas l'id " + id);
+                    connexion.closeConnexion(connector);
+                }
             } catch (Exception e) {
                 System.out.println(e.getMessage());
                 connexion.closeConnexion(connector);
@@ -139,5 +146,28 @@ public class DAONoSQL {
             System.out.println(e.getMessage());
         }
         return planteRetour;
+    }
+
+    public String deletePlante(String host, int port, String dbName, String id, String rev) {
+        String idRetour = null;
+        try {
+            connexion.setHost(host);
+            connexion.setPort(port);
+            connexion.setDatabaseName(dbName);
+
+            CouchDbConnector connector = connexion.connexion();
+            try {
+                connector.delete(id, rev);
+                idRetour = id;
+                connexion.closeConnexion(connector);
+            } catch (Exception e) {
+                System.out.println(e.getMessage());
+                connexion.closeConnexion(connector);
+            }
+            connexion.closeConnexion(connector);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return  idRetour;
     }
 }

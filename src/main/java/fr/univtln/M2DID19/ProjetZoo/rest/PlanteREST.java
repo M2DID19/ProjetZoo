@@ -82,4 +82,18 @@ public class PlanteREST {
         }
         return plante;
     }
+
+    @DELETE
+    @Path("/deletePlante")
+    public String deletePlante(@QueryParam("host") String host, @QueryParam("port") int port,
+                               @QueryParam("dbName") String dbName, @QueryParam("id") String id,
+                               @QueryParam("rev") String rev) {
+        String idRetour = null;
+        try {
+            idRetour = gestionPlante.deletePlante(host, port, dbName, id, rev);
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
+        }
+        return idRetour;
+    }
 }
